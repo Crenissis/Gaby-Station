@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2026 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: MobSyndicateFootsoldier
+  id: MobSyndicateSoldierBitrunning
+  name: Syndicate soldier
+  suffix: Bitrunning
+  components:
+  - type: BitrunningDomainEnemyObjective
+  - type: Perishable 
+    molsPerSecondPerUnitMass: 0
+
+- type: entity
+  parent: MobSyndicateSoldierBitrunning
+  id: MobNukeopsSoldierBitrunning
+  name: Syndicate soldier
+  suffix: Bitrunning
+  components:
+  - type: Loadout
+    prototypes: [ NukeopsSoldierGear ]
+
+- type: entity
+  parent: MobSyndicateSoldierBitrunning
+  id: MobExperimentalSoldierBitrunning
+  name: Experimental syndicate soldier
+  suffix: Bitrunning
+  components:
+  - type: Loadout
+    prototypes: [ ExperimentalSoldierGear ]
+  - type: InnateTool
+    tools:
+    - id: WeaponLightMachineGunL6CInfinite

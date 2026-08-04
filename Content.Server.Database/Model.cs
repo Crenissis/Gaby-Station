@@ -202,11 +202,13 @@ namespace Content.Server.Database
 
         // Gabystation
         public DbSet<GabyModel.GabyStoreOwnedItems> GabyStoreOwnedItems { get; set; } = default!;
+        public DbSet<DBJobAlternateTitle> DBJobAlternateTitle { get; set; } = null!;
 
         // Goobstation Polls
         public DbSet<Poll> Polls { get; set; } = default!;
         public DbSet<PollOption> PollOptions { get; set; } = default!;
         public DbSet<PollVote> PollVotes { get; set; } = default!;
+        public DbSet<PollSeen> PollSeen { get; set; } = default!;
         public DbSet<BookPrinterEntry> BookPrinterEntry { get; set; } = null!; // ADT-BookPrinter
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -650,6 +652,33 @@ namespace Content.Server.Database
             modelBuilder.Entity<PollVote>()
                 .HasIndex(v => new { v.PollId, v.PlayerUserId, v.PollOptionId })
                 .IsUnique();
+
+            modelBuilder.Entity<PollSeen>()
+                .HasOne(s => s.Poll)
+                .WithMany()
+                .HasForeignKey(s => s.PollId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollSeen>()
+                .HasOne(s => s.Player)
+                .WithMany()
+                .HasForeignKey(s => s.PlayerUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollSeen>()
+                .HasIndex(s => new { s.PollId, s.PlayerUserId })
+                .IsUnique();
+
+            modelBuilder.Entity<DBJobAlternateTitle>()
+                .HasOne(e => e.Profile)
+                .WithMany(e => e.AltTitles)
+                .HasForeignKey(e => e.ProfileId)
+                .IsRequired();
+
+            modelBuilder.Entity<DBJobAlternateTitle>()
+                .HasIndex(p => new { p.ProfileId, p.RoleName, p.AlternateTitle })
+                .IsUnique();
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -702,7 +731,7 @@ namespace Content.Server.Database
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
 
-        public List<DBJobAlternateTitle> AltTitles = new();
+        public List<DBJobAlternateTitle> AltTitles { get; } = new();
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 

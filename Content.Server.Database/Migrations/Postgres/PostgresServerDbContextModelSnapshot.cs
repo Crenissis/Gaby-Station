@@ -772,6 +772,38 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DBJobAlternateTitle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("dbjob_alternate_title_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AlternateTitle")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("alternate_title");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_id");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("role_name");
+
+                    b.HasKey("Id")
+                        .HasName("PK_dbjob_alternate_title");
+
+                    b.HasIndex("ProfileId", "RoleName", "AlternateTitle")
+                        .IsUnique();
+
+                    b.ToTable("dbjob_alternate_title", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.GabyModel+GabyStoreOwnedItems", b =>
                 {
                     b.Property<int>("Id")
@@ -1053,6 +1085,42 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasDatabaseName("IX_poll_options_poll_id");
 
                     b.ToTable("poll_options", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollSeen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_seen_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_id");
+
+                    b.Property<DateTime>("SeenAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("seen_at");
+
+                    b.HasKey("Id")
+                        .HasName("PK_poll_seen");
+
+                    b.HasIndex("PlayerUserId")
+                        .HasDatabaseName("IX_poll_seen_player_user_id");
+
+                    b.HasIndex("PollId")
+                        .HasDatabaseName("IX_poll_seen_poll_id");
+
+                    b.HasIndex("PollId", "PlayerUserId")
+                        .IsUnique();
+
+                    b.ToTable("poll_seen", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.PollVote", b =>
@@ -2312,6 +2380,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Server");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DBJobAlternateTitle", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("AltTitles")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_dbjob_alternate_title_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2375,6 +2455,28 @@ namespace Content.Server.Database.Migrations.Postgres
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_poll_options_polls_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollSeen", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_seen_player_player_user_id");
+
+                    b.HasOne("Content.Server.Database.Poll", "Poll")
+                        .WithMany()
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_seen_polls_poll_id");
+
+                    b.Navigation("Player");
 
                     b.Navigation("Poll");
                 });
@@ -2880,6 +2982,8 @@ namespace Content.Server.Database.Migrations.Postgres
 
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
+                    b.Navigation("AltTitles");
+
                     b.Navigation("Antags");
 
                     b.Navigation("CDProfile");

@@ -1,5 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Goob Station Contributors
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -43,6 +42,9 @@
   - type: InteractionOutline
   - type: NoSlip
   - type: Clickable
+  - type: Butcherable
+    butcherDelay: 15
+    spawned: [ ]
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -169,6 +171,8 @@
       Female: SlaughterDemon
       Unsexed: SlaughterDemon
   - type: ZombieImmune
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistSlaughterDemon
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 1
@@ -185,6 +189,11 @@
         Heat: 0
     heatDamageThreshold: 666
     coldDamageThreshold: 66
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
 
 # laughter demon
 - type: entity

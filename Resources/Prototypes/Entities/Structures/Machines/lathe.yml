@@ -470,7 +470,6 @@
     - SecurityWeaponsStaticGoob
     - SecurityAmmoStaticGoob
     - SyndicateAmmoLightStatic
-    - ScienceExplosives
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -566,6 +565,7 @@
     - SecurityWeaponsGoob
     - RestraintTechnology
     - MiningWeapons
+    - ScienceExplosives
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -791,12 +791,12 @@
     - SecurityBoardsStaticGoob
     - SecurityBoardsStaticGoob
     - PowerCellsStatic
-    - ScienceExplosives
     - GrenadeTriggersStatic
     - SecurityWeaponsStaticGoob
     - CablesStatic #Dumont
     - ERTAmmoStaticGoob #Dumont, so that sec can print .30 for some new guns
     dynamicPacks:
+    - ScienceExplosives
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
     - SecurityEquipment
@@ -924,6 +924,7 @@
     - MedicalBoards
     - Janitor
     - Genetics
+    - MedicalCloning
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language
@@ -1074,6 +1075,16 @@
     - type: MiningPoints # DeltaV - Source of mining points for miners
     - type: MiningPointsLathe # DeltaV
     - type: MaterialStorageMagnetPickup # Frontier
+    # // Dumont
+    - type: ItemSlots
+      slots:
+        id_slot:
+          name: card reader
+          insertSound: /Audio/Machines/id_swipe.ogg
+          ejectSound: /Audio/Machines/id_swipe.ogg
+          whitelist:
+            components:
+              - IdCard
 
 - type: entity
   parent: OreProcessor

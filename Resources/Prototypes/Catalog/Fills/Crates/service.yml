@@ -268,7 +268,7 @@
   components:
     - type: StorageFill
       contents:
-      - id: BookSpaceEncyclopedia
+      # - id: BookSpaceEncyclopedia
       - id: BookTheBookOfControl
       - id: BookBartendersManual
       - id: BookHowToCookForFortySpaceman
@@ -447,20 +447,6 @@
 
 
 - type: entity
-  id: CrateHolySupplies
-  parent: CratePlastic
-  name: holy supplies crate
-  description: Contains a Bible and 2 Jugs of holy water for religious needs
-  components:
-    - type: StorageFill
-      contents:
-        - id: JugHolyWater
-          amount: 2
-        - id: Bible
-          amount: 1
-
-
-- type: entity
   parent: CrateGenericSteel
   id: CrateServiceColorfulLights
   name: colorful lights crate
@@ -470,4 +456,3 @@
     contents:
     - id: BoxLightbulbColorfulMixed
     - id: BoxLighttubeColorfulMixed
-

@@ -183,6 +183,7 @@
   - type: Ghost
   - type: GhostHearing
   - type: ShowElectrocutionHUD
+  - type: ToggleableHUD # Orion
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     receiveAllChannels: true
@@ -220,6 +221,7 @@
   - type: Tag
     tags:
     - AllowGhostShownByEvent
+    - NoConsoleSound # Orion
   # <Goobstation>
   - type: UserInterface
     interfaces:
@@ -242,7 +244,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
-    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
     keywords: [ "AI", "console", "interface" ]
     priority: 10
     checkCanInteract: false

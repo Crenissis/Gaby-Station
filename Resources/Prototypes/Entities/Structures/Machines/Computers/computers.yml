@@ -468,6 +468,8 @@
     board: CargoShuttleConsoleCircuitboard
   - type: StealTarget
     stealGroup: CargoShuttleConsoleCircuitboard
+  - type: AccessReader # Dumont
+    access: [["Cargo"]]
 
 - type: entity
   parent: BaseComputerShuttle
@@ -498,6 +500,8 @@
       board: SalvageShuttleConsoleCircuitboard
     - type: StealTarget
       stealGroup: SalvageShuttleConsoleCircuitboard
+    - type: AccessReader # Dumont
+      access: [["Salvage"]]
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -1387,7 +1391,7 @@
   - type: Computer
     board: CargoRequestSecurityComputerCircuitboard
   - type: PointLight
-    color: "#d11d00"
+    color: "#223b78"
   - type: AccessReader
     access: [["Security"]]
 
@@ -1458,7 +1462,7 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Cargo"]] #Dumontstation what, do cargo techs not have the right to skip dumbass bounties if there's no QM?
   - type: GuideHelp
     guides:
     - CargoBounties
@@ -1640,8 +1644,11 @@
       color: "#b89f25"
     - type: AccessReader
       access: [["Salvage"]]
-#    - type: StealTarget                  Goob edit - Removed cause Lavaland
-#      stealGroup: SalvageExpeditionsComputerCircuitboard
+    - type: StealTarget
+      stealGroup: SalvageExpeditionsComputerCircuitboard
+    # Far Horizons
+    - type: Speech
+      speechVerb: Robotic
 
 - type: entity
   parent: BaseComputer
@@ -1886,7 +1893,7 @@
   - type: Computer
     board: RoboticsConsoleCircuitboard
   - type: AccessReader # only used for dangerous things
-    access: [["ResearchDirector"]]
+    access: [["ResearchDirector"], ["Robotics"]] # Dumont edit
   - type: Lock
     unlockOnClick: false
 

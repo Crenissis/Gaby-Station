@@ -127,7 +127,6 @@ using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
-using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared.ActionBlocker;
@@ -135,6 +134,8 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage.ForceSay;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -143,6 +144,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
+using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Station.Components;
 using Content.Shared.Whitelist;
@@ -159,6 +161,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared._RMC14.CCVar;
 
 namespace Content.Server.Chat.Systems;
 
@@ -207,6 +210,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
     private bool _critLoocEnabled;
+    private bool _DeadchatEnabled; // RMC14
     private readonly bool _adminLoocEnabled = true;
 
     public override void Initialize()
@@ -216,6 +220,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         Subs.CVar(_configurationManager, CCVars.LoocEnabled, OnLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.DeadLoocEnabled, OnDeadLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.CritLoocEnabled, OnCritLoocEnabledChanged, true);
+        Subs.CVar(_configurationManager, RMCCVars.RMCDeadChatEnabled, OnDeadChatEnabledChanged, true); // RMC14
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
     }
@@ -246,6 +251,16 @@ public sealed partial class ChatSystem : SharedChatSystem
         _critLoocEnabled = val;
         _chatManager.DispatchServerAnnouncement(
             Loc.GetString(val ? "chat-manager-crit-looc-chat-enabled-message" : "chat-manager-crit-looc-chat-disabled-message"));
+    }
+
+        private void OnDeadChatEnabledChanged(bool val)
+    {
+        if (_DeadchatEnabled == val)
+            return;
+
+        _DeadchatEnabled = val;
+        _chatManager.DispatchServerAnnouncement(
+            Loc.GetString(val ? "set-dchat-command-dchat-enabled" : "set-dchat-command-dchat-disabled"));
     }
 
     private void OnGameChange(GameRunLevelChangedEvent ev)
@@ -397,7 +412,18 @@ public sealed partial class ChatSystem : SharedChatSystem
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
         if (checkRadioPrefix)
         {
-            if (TryProccessRadioMessage(source, message, out var modMessage, out var channel))
+            // Orion-Start
+            if (IsRadioPrefixMessage(message) && !CanUseRadio(source))
+            {
+                if (TryProccessRadioMessage(source, message, out var fallbackMessage, out _, quiet: true))
+                    message = fallbackMessage;
+
+                desiredType = InGameICChatType.Whisper;
+                checkRadioPrefix = false;
+            }
+            // Orion-End
+
+            if (checkRadioPrefix && TryProccessRadioMessage(source, message, out var modMessage, out var channel)) // Orion-Edit
             {
                 SendEntityWhisper(source, modMessage, range, channel, nameOverride, language, hideLog, ignoreActionBlocker, colorOverride); // Goob edit & Einstein Engines - Language
                 return;
@@ -421,6 +447,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
+        // Orion-Start
+        if (desiredType == InGameICChatType.Speak && _mobStateSystem.IsSoftCritical(source))
+            desiredType = InGameICChatType.Whisper;
+        // Orion-End
+
         // Otherwise, send whatever type.
         switch (desiredType)
         {
@@ -438,6 +469,32 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
         }
     }
+
+    // Orion-Start
+    private bool IsRadioPrefixMessage(string message)
+    {
+        return message.StartsWith(RadioCommonPrefix) ||
+               message.StartsWith(RadioChannelPrefix) ||
+               message.StartsWith(RadioChannelAltPrefix);
+    }
+
+    private bool CanUseRadio(EntityUid source)
+    {
+        if (_mobStateSystem.IsCritical(source))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("chat-manager-cannot-radio-while-critical"), source, source);
+            return false;
+        }
+
+        if (TryComp<CuffableComponent>(source, out var cuffable) && cuffable.CuffedHandCount > 0)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("chat-manager-cannot-radio-with-bound-hands"), source, source);
+            return false;
+        }
+
+        return true;
+    }
+    // Orion-End
 
     public void TrySendInGameOOCMessage(
         EntityUid source,
@@ -783,8 +840,24 @@ public sealed partial class ChatSystem : SharedChatSystem
         Color? colorOverride = null // Goobstation
         )
     {
+        // Orion-Start
+        var allowSoftCritWhisper = false;
+        if (!ignoreActionBlocker && _mobStateSystem.IsSoftCritical(source) && !HasComp<AllowNextCritSpeechComponent>(source))
+        {
+            allowSoftCritWhisper = true;
+            EnsureComp<AllowNextCritSpeechComponent>(source);
+        }
+        // Orion-End
+
+        // Orion-Edit-Start
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+        {
+            if (allowSoftCritWhisper)
+                RemCompDeferred<AllowNextCritSpeechComponent>(source);
+
             return;
+        }
+        // Orion-Edit-End
 
         // Goob edit start
         var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);
@@ -987,6 +1060,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessage;
 
         var speech = GetSpeechVerb(source, message); // Goobstation - Dead chat verbs
+
+        if (!_adminManager.IsAdmin(player) && !_DeadchatEnabled) // RMC14 - Check the status of the "rmc.dead_chat_enabled" CCvar before continuing.
+            return;
 
         if (_adminManager.IsAdmin(player))
         {
@@ -1402,59 +1478,6 @@ public sealed partial class ChatSystem : SharedChatSystem
 /// </summary>
 public record ExpandICChatRecipientsEvent(EntityUid Source, float VoiceRange, Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
 {
-}
-
-/// <summary>
-///     Raised broadcast in order to transform speech.transmit
-/// </summary>
-public sealed class TransformSpeechEvent : EntityEventArgs
-{
-    public EntityUid Sender;
-    public string Message;
-
-    public TransformSpeechEvent(EntityUid sender, string message)
-    {
-        Sender = sender;
-        Message = message;
-    }
-}
-
-public sealed class CheckIgnoreSpeechBlockerEvent : EntityEventArgs
-{
-    public EntityUid Sender;
-    public bool IgnoreBlocker;
-
-    public CheckIgnoreSpeechBlockerEvent(EntityUid sender, bool ignoreBlocker)
-    {
-        Sender = sender;
-        IgnoreBlocker = ignoreBlocker;
-    }
-}
-
-/// <summary>
-///     Raised on an entity when it speaks, either through 'say' or 'whisper'.
-/// </summary>
-public sealed class EntitySpokeEvent : EntityEventArgs
-{
-    public readonly EntityUid Source;
-    public readonly string Message;
-    public readonly bool IsWhisper;
-    public readonly LanguagePrototype Language;
-
-    /// <summary>
-    ///     If the entity was trying to speak into a radio, this was the channel they were trying to access. If a radio
-    ///     message gets sent on this channel, this should be set to null to prevent duplicate messages.
-    /// </summary>
-    public RadioChannelPrototype? Channel;
-
-    public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, bool isWhisper, LanguagePrototype language) // Einstein Engines - Language
-    {
-        Source = source;
-        Message = message;
-        Channel = channel;
-        IsWhisper = isWhisper;
-        Language = language;
-    }
 }
 
 // The three chat type enums (InGameICChatType, InGameOOCChatType, and ChatTransmitRange) have been moved to Shared.

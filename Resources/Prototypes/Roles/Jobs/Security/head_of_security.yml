@@ -188,6 +188,7 @@
   - Command
   - Brig
   - Security
+  - BrigMedic # Dumont
   - Armory
   - Maintenance
   - Service
@@ -214,11 +215,9 @@
     id: HoSPDA
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     ears: ClothingHeadsetAltSecurity
-    pocket1: WeaponPistolMk58
   storage:
     back:
     - Flash
-    - MagazinePistol
     - SecHypo # Goobstation
 
 - type: chameleonOutfit
