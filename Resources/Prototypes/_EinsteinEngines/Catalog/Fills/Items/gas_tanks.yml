@@ -10,6 +10,11 @@
     sprite: _EinsteinEngines/Objects/Tanks/emergency.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Objects/Tanks/emergency.rsi
+    clothingVisuals:
+      suitstorage:
+      - state: equipped-SUITSTORAGE
+      - state: equipped-SUITSTORAGE-unshaded
+        shader: unshaded
   - type: Tag
     tags:
     - GasTank
@@ -44,6 +49,11 @@
     sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
+    clothingVisuals:
+      suitstorage:
+      - state: equipped-SUITSTORAGE
+      - state: equipped-SUITSTORAGE-unshaded
+        shader: unshaded
   - type: Tag
     tags:
     - GasTank
@@ -78,6 +88,11 @@
     sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
+    clothingVisuals:
+      suitstorage:
+      - state: equipped-SUITSTORAGE
+      - state: equipped-SUITSTORAGE-unshaded
+        shader: unshaded
   - type: Tag
     tags:
     - GasTank
