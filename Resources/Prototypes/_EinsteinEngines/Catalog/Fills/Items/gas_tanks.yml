@@ -18,7 +18,7 @@
   - type: Tag
     tags:
     - GasTank
-    - EmergencyOxygenTank
+    - EmergencyPlasmaTank
 
 - type: entity
   id: EmergencyPlasmaTankFilled
@@ -57,7 +57,7 @@
   - type: Tag
     tags:
     - GasTank
-    - EmergencyOxygenTank
+    - EmergencyPlasmaTank
 
 - type: entity
   id: ExtendedEmergencyPlasmaTankFilled
@@ -96,7 +96,7 @@
   - type: Tag
     tags:
     - GasTank
-    - EmergencyOxygenTank
+    - EmergencyPlasmaTank
 
 - type: entity
   id: DoubleEmergencyPlasmaTankFilled
