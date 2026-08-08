@@ -23,14 +23,12 @@
       "name": "kidneys"
     },
     {
-      "name": "heart-off"
+      "name": "heart"
     },
     {
-      "name": "heart-on",
+      "name": "heart_flame",
       "delays": [
         [
-          0.6,
-          0.1,
           0.1,
           0.1,
           0.1,
