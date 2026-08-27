@@ -1,0 +1,303 @@
+#Base
+
+- type: entity
+  abstract: true
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesEnvirobootsBase
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.95
+  - type: TemperatureProtection
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.2
+  - type: Clothing
+    equipDelay: 0.4
+    unequipDelay: 0.6 # Slightly higher delay to protect against accidental unequips
+  - type: IgniteFromGasImmunity
+    parts:
+    - LeftFoot
+    - RightFoot
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - PlasmamanSafe
+  - type: StainBlocker
+    slots: [FEET]
+  - type: GuideHelp
+    guides: [ Plasmaman ]
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnviroboots
+  name: plasma enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/plain.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/plain.rsi
+
+#Cargo
+
+- type: entity
+  parent: [ClothingShoesEnvirobootsBase, BaseSalvageContraband]
+  id: ClothingShoesEnvirobootsMaxim
+  name: maxim enviroboots
+  description: The journey into the unknown.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Cargo/maxim.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Cargo/maxim.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.3
+        Radiation: 0.01
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+
+- type: entity
+  parent: [ClothingShoesEnvirobootsBase, BaseSalvageContraband, ClothingShoesBootsMagBase]
+  id: ClothingShoesEnvirobootsSalvage
+  name: salvage enviroboots
+  description: Modified enviroboots for hazardous environments. They feature magnetic soles that ensure the user remains safely attached to the ground.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Cargo/salvage.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Cargo/salvage.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.75
+        Radiation: 0.1
+        Caustic: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ItemTogglePrefix
+    prefixOn: on
+  - type: ToggleClothingPrefix
+    prefixOn: on
+
+- type: entity
+  parent: [ClothingShoesEnvirobootsBase, BaseCargoContraband]
+  id: ClothingShoesEnvirobootsExplorer
+  name: explorer enviroboots
+  description: An armoured enviroboot for exploring harsh environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Cargo/shaft_miner.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.6
+        Caustic: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.4
+  - type: PressureArmorChange
+
+#Engineering
+
+#Dignitary
+
+#Heads
+
+#Medical
+
+#Science
+
+#Security
+
+#Service
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsBartender
+  name: bartender enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/bartender.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/bartender.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsBotanist
+  name: botanist enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/botanist.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/botanist.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsBoxer
+  name: boxer enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/boxer.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/boxer.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsChaplain
+  name: chaplain enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/chaplain.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/chaplain.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsChef
+  name: chef enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/chef.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/chef.rsi
+
+- type: entity
+  parent: [ClothingShoesEnvirobootsBase, ClothingShoesClownBase]
+  id: ClothingShoesEnvirobootsClown
+  name: clown enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/clown.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/clown.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+      params:
+        variation: 0.17
+
+- type: entity
+  parent: [ClothingShoesEnvirobootsBase, ClothingShoesGaloshes]
+  id: ClothingShoesEnvirobootsJanitor
+  name: janitor enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/janitor.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/janitor.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsLawyer
+  name: lawyer enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/lawyer.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/lawyer.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsMime
+  name: mime enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/mime.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/mime.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsMusician
+  name: musician enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/musician.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/musician.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsRadio
+  name: radio enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/radio.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/radio.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsReporter
+  name: reporter enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/reporter.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/reporter.rsi
+
+- type: entity
+  parent: ClothingShoesEnvirobootsBase
+  id: ClothingShoesEnvirobootsZookeeper
+  name: zookeeper enviroboots
+  description: Covers up those scandalous boney feet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/zookeeper.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Shoes/Enviroboots/Service/zookeeper.rsi
+
+#Others

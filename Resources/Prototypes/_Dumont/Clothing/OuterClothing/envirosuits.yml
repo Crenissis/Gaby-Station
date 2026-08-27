@@ -1,0 +1,423 @@
+#Base
+
+- type: entity
+  abstract: true
+  parent: ClothingOuterBase
+  id: ClothingOuterEnvirosuitBase
+  name: base envirosuit
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.90
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Other
+  - type: PressureProtection
+    highPressureMultiplier: 0.75
+  - type: TemperatureProtection
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.2
+  - type: Clothing
+    equipDelay: 0.4
+    unequipDelay: 0.6
+  - type: Item
+    size: Ginormous
+  - type: IgniteFromGasImmunity
+    parts:
+    - Chest
+    - Groin
+    - LeftArm
+    - RightArm
+    - LeftLeg
+    - RightLeg
+  - type: SelfExtinguisher
+    cooldown: 100
+    requiresIgniteFromGasImmune: true
+    sound:
+      path: /Audio/Effects/extinguish.ogg
+  - type: LimitedCharges
+    maxCharges: 4
+  - type: AllowSuitStorage
+    whitelist:
+      tags:
+      - GasTank
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
+  - type: GuideHelp
+    guides: [ Plasmaman ]
+  - type: StainBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - PlasmamanSafe
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuit
+  name: plasma envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/plain.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/plain.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+#Cargo
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitMaxim
+  name: maxim envirosuit
+  description: Fire. Heat. These things forge great weapons, they also forge great explorers.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Cargo/maxim.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Cargo/maxim.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.70
+    sprintModifier: 0.70
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.3
+        Radiation: 0.01
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitSalvage
+  name: salvage envirosuit
+  description: A special envirosuit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Cargo/salvage.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Cargo/salvage.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.6
+        Caustic: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+
+- type: entity
+  parent: [ClothingOuterEnvirosuitBase, BaseCargoContraband]
+  id: ClothingOuterEnvirosuitExplorer
+  name: explorer envirosuit
+  description: An armoured envirosuit for exploring harsh environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Cargo/shaft_miner.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.3
+        Radiation: 0.01
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+
+#Engineering
+
+#Dignitary
+
+#Heads
+
+#Medical
+
+#Science
+
+#Security
+
+#Service
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitAncient
+  name: ancient envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/ancient.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/ancient.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitBartender
+  name: bartender envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/bartender.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/bartender.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitBotanist
+  name: botanist envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/botanist.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/botanist.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitBoxer
+  name: boxer envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/boxer.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/boxer.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitChaplain
+  name: chaplain envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/chaplain.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/chaplain.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitChef
+  name: chef envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/chef.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/chef.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitClown
+  name: clown envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/clown.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/clown.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitJanitor
+  name: janitor envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/janitor.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/janitor.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitLawyer
+  name: lawyer envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/lawyer.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/lawyer.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitMime
+  name: mime envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/mime.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/mime.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitMusician
+  name: musician envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/musician.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/musician.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitRadio
+  name: radio envirosuit
+  description: Radio envirsuit.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/radio.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/radio.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitReporter
+  name: reporter envirosuit
+  description: Reporter envirsuit.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/reporter.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/reporter.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ClothingOuterEnvirosuitBase
+  id: ClothingOuterEnvirosuitZookeeper
+  name: zookeeper envirosuit
+  description: Zookeeper envirsuit.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/zookeeper.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/OuterClothing/Envirosuits/Service/zookeeper.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+
+#Others

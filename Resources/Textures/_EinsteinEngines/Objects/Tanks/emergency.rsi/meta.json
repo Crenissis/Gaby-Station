@@ -1,7 +1,7 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "@bobbble from goobstation discord, resprited by Crenissis",
+  "copyright": "@bobbble from goobstation discord, resprited and equipped-BELT by Crenissis",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,10 @@
   "states": [
     {
       "name": "icon"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
     },
     {
       "name": "equipped-SUITSTORAGE",

@@ -1,0 +1,604 @@
+#Base
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: ClothingHeadEnvirohelmetBase
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.90
+    coverage:
+    - Head
+  - type: EyeProtection
+  - type: BreathMask
+  - type: PressureProtection
+    highPressureMultiplier: 0.75
+  - type: TemperatureProtection
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.2
+  - type: Item
+    size: Normal
+    heldPrefix: off
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    equipDelay: 0.4
+    unequipDelay: 0.6 # Slightly higher delay to protect against accidental unequips
+    equippedPrefix: off
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+    equipSound:
+      collection: GenericEquip
+  - type: Appearance
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: IngestionBlocker
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    clothingSlots:
+    - mask
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    color: "#ba7fba"
+    radius: 4
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: GuideHelp
+    guides: [ Plasmaman ]
+  - type: StainBlocker
+    slots: [MASK, HEAD]
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        interpolate: Linear
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
+  - type: Battery
+    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - PlasmamanSafe
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleEnvirohelmet
+  name: Toggle Envirohelmet
+  description: Changes the Envirohelmet to a less or more protected version.
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleClothingEvent
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohealmtToggleableBase
+  components:
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "closed" ]
+      - state: open-icon
+        visible: false
+        map: [ "open" ]
+      - state: icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - state: open-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "open-light" ]
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: EnvirohelmetToggle
+    isActive: false
+    closedClothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+    openClothingVisuals:
+      head:
+      - state: open-equipped-HELMET
+    closedComponents:
+      - type: PressureProtection
+        highPressureMultiplier: 0.5
+        lowPressureMultiplier: 1000
+      - type: Armor
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.75
+            Slash: 0.75
+            Piercing: 0.8
+            Heat: 0.75
+            Radiation: 0.1
+            Caustic: 0.7
+    openComponents:
+      - type: PressureProtection
+        highPressureMultiplier: 1
+        lowPressureMultiplier: 1
+      - type: Armor
+        modifiers:
+          coefficients:
+            Caustic: 0.9
+  - type: GenericVisualizer
+    visuals:
+      enum.EnvirohelmetVisuals.IsOpen:
+        open:
+          False: {visible: false}
+          True: {visible: true, state: open-icon}
+        closed:
+          False: {visible: true, state: icon}
+          True: {visible: false, state: icon}
+      enum.EnvirohelmetVisuals.IsClosed:
+          open:
+            False: {visible: false, state: open-icon}
+            True: {visible: false}
+          closed:
+            False: {visible: false, state: icon}
+            True: {visible: true, state: icon}
+
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmet
+  name: plasma envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/plain.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/plain.rsi
+
+#Cargo
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetBitrunner
+  name: bitrunner envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/bitrunner.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/bitrunner.rsi
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET-light
+        shader: unshaded
+      - state: equipped-HELMET-matrix
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    color: "#cfe8d7"
+    radius: 4
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetCargoTech
+  name: cargo tech envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/cargo_tech.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/cargo_tech.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetMailman
+  name: mailman envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/mailman.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/mailman.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetMaxim
+  name: maxim envirohelmet
+  description: A predication of decay washes over your mind. Bones charred by fire
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/maxim.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/maxim.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
+        Heat: 0.35
+        Radiation: 0.01
+
+- type: entity
+  parent: ClothingHeadEnvirohealmtToggleableBase
+  id: ClothingHeadEnvirohelmetSalvage
+  name: salvage envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/salvage.rsi
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/salvage.rsi
+    heldPrefix: closed
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/salvage.rsi
+    equippedPrefix: closed
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  categories: [ HideSpawnMenu ]
+  id: ClothingHeadEnvirohelmetExplorerOpen
+  name: explorer envirohelmet
+  description: An armoured envirohelmet for exploring harsh environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+    layers:
+    - state: open-icon
+    - state: open-icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+    clothingVisuals:
+      head:
+      - state: open-equipped-HELMET
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+    size: Normal
+    heldPrefix: open
+    inhandVisuals:
+      left:
+      - state: open-inhand-left
+      right:
+      - state: open-inhand-right
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: open-equipped-HELMET-light
+        shader: unshaded
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: ToggleClothing
+    action: ActionToggleEnvirohelmet
+  - type: ToggleableClothing
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadEnvirohelmetExplorerClosed
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetExplorerClosed
+  name: explorer envirohelmet
+  description: An armoured envirohelmet for exploring harsh environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.65
+        Caustic: 0.65
+  - type: PressureArmorChange
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: ToggleClothing
+    action: ActionToggleEnvirohelmet
+  - type: ToggleableClothing
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadEnvirohelmetExplorerOpen
+
+#Engineering
+
+#Dignitary
+
+#Heads
+
+#Medical
+
+#Science
+
+#Security
+
+#Service
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetAncient
+  name: ancient envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/ancient.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/ancient.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetBartender
+  name: bartender envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/bartender.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/bartender.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetBotanist
+  name: botanist envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/botanist.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/botanist.rsi
+  - type: PointLight
+    enabled: false
+    color: "#79cf6b"
+    radius: 4
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetBoxer
+  name: boxer envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/boxer.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/boxer.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetChaplain
+  name: chaplain envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/chaplain.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/chaplain.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetChef
+  name: chef envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/chef.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/chef.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetClown
+  name: clown envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/clown.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/clown.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    clothingSlots:
+    - mask
+    - eyes
+    - ears
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetJanitor
+  name: janitor envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/janitor.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/janitor.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetLawyer
+  name: lawyer envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/lawyer.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/lawyer.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetMime
+  name: mime envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/mime.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/mime.rsi
+  - type: PointLight
+    enabled: false
+    color: "#79cf6b"
+    radius: 4
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetMusician
+  name: musician envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/musician.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/musician.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetRadio
+  name: radio envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/radio.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/radio.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetReporter
+  name: reporter envirohelmet
+  description: Reporter envirohelmet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/reporter.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/reporter.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetZookeeper
+  name: zookeeper envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/zookeeper.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/zookeeper.rsi
+  - type: PointLight
+    enabled: false
+    color: "#f5cb4c"
+    radius: 4
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+
+#Others

@@ -1,0 +1,22 @@
+- type: entity
+  parent: BaseAction
+  id: ActionClothingPressurize
+  name: Pressurize clothing
+  description: Pressurizes your current clothing.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ConfirmableAction
+    confirmDelay: 0
+    primeTime: 2
+  - type: Action
+    checkCanInteract: true
+    checkConsciousness: true
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/modsuit.rsi
+      state: activate
+    iconOn:
+      sprite: _Goobstation/Actions/modsuit.rsi
+      state: activate-ready
+  - type: InstantAction
+    event: !type:PressurizeClothingEvent {}

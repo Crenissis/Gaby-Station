@@ -44,11 +44,11 @@
   description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/extended-emergency.rsi
   - type: Item
-    sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/extended-emergency.rsi
   - type: Clothing
-    sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/extended-emergency.rsi
     clothingVisuals:
       suitstorage:
       - state: equipped-SUITSTORAGE
@@ -77,17 +77,17 @@
       temperature: 293.15
 
 - type: entity
-  parent: DoubleEmergencyOxygenTank
-  id: DoubleEmergencyPlasmaTank
-  name: plasma internals tank
+  parent: GasTankRoundBase # Dumont change
+  id: InternalsPlasmaTank
+  name: internals plasma tank
   description: A tank of plasma designed to be internals for Plasmamen.
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/internals.rsi
   - type: Item
-    sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/internals.rsi
   - type: Clothing
-    sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/internals.rsi
     clothingVisuals:
       suitstorage:
       - state: equipped-SUITSTORAGE
@@ -99,8 +99,8 @@
     - EmergencyPlasmaTank
 
 - type: entity
-  id: DoubleEmergencyPlasmaTankFilled
-  parent: DoubleEmergencyPlasmaTank
+  id: InternalsPlasmaTankFilled
+  parent: InternalsPlasmaTank
   suffix: Filled
   components:
   - type: GasTank
