@@ -8,10 +8,16 @@
   },
   "states": [
     {
-        "name": "icon"
+        "name": "V1-icon"
     },
     {
-        "name": "icon-flash"
+        "name": "V1-icon-flash"
+    },
+    {
+        "name": "V2-icon"
+    },
+    {
+        "name": "V2-icon-flash"
     },
     {
         "name": "open-icon"
@@ -20,15 +26,27 @@
         "name": "open-icon-flash"
     },
     {
-        "name": "equipped-HELMET",
+        "name": "V1-equipped-HELMET",
         "directions": 4
     },
     {
-        "name": "equipped-HELMET-light",
+        "name": "V1-equipped-HELMET-light",
         "directions": 4
     },
     {
-        "name": "equipped-HELMET-unshaded",
+        "name": "V1-equipped-HELMET-unshaded",
+        "directions": 4
+    },
+    {
+        "name": "V2-equipped-HELMET",
+        "directions": 4
+    },
+    {
+        "name": "V2-equipped-HELMET-light",
+        "directions": 4
+    },
+    {
+        "name": "V2-equipped-HELMET-unshaded",
         "directions": 4
     },
     {
@@ -40,11 +58,19 @@
         "directions": 4
     },
     {
-        "name": "inhand-left",
+        "name": "V1-inhand-left",
         "directions": 4
     },
     {
-        "name": "inhand-right",
+        "name": "V1-inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "V2-inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "V2-inhand-right",
         "directions": 4
     },
     {

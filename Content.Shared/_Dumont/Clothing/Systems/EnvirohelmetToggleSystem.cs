@@ -2,9 +2,11 @@
 using Content.Shared._Dumont.Clothing.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Hands;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Item;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Item.ItemToggle;
 
 namespace Content.Shared._Dumont.Clothing.Systems;
 
@@ -15,6 +17,7 @@ public sealed partial class EnvirohelmetToggleSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = null!;
     [Dependency] private SharedAppearanceSystem _appearance = null!;
     [Dependency] private ClothingSystem _clothing = null!;
+    [Dependency] private ComponentTogglerSystem _componentTogglerSystem = default!;
 
     public override void Initialize()
     {
@@ -24,15 +27,16 @@ public sealed partial class EnvirohelmetToggleSystem : EntitySystem
         SubscribeLocalEvent<EnvirohelmetToggleComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<EnvirohelmetToggleComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<EnvirohelmetToggleComponent, ToggleEnvirohelmetEvent>(OnToggle);
-        SubscribeLocalEvent<EnvirohelmetToggleComponent, GetEquipmentVisualsEvent>(OnGetVisuals, after: [typeof(ClothingSystem)]);
     }
 
     private void OnMapInit(Entity<EnvirohelmetToggleComponent> ent, ref MapInitEvent args)
     {
-        _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action);
+        var (uid, comp) = ent;
 
-        ApplyComponentMode(ent, ent.Comp.IsActive);
-        UpdateAppearance(ent);
+        _actions.AddAction(uid, ref comp.ActionEntity, comp.Action);
+        _actions.SetToggled(comp.ActionEntity, comp.IsActive);
+        UpdateState(ent, comp.IsActive);
+        Dirty(uid, comp);
     }
 
     private void OnShutdown(Entity<EnvirohelmetToggleComponent> ent, ref ComponentShutdown args)
@@ -49,134 +53,48 @@ public sealed partial class EnvirohelmetToggleSystem : EntitySystem
 
     private void OnToggle(Entity<EnvirohelmetToggleComponent> ent, ref ToggleEnvirohelmetEvent args)
     {
-        args.Handled = true;
+        var (uid, comp) = ent;
+        var nextActive = !comp.IsActive;
 
-        ent.Comp.IsActive = !ent.Comp.IsActive;
-        Dirty(ent);
-
-        _audio.PlayPredicted(ent.Comp.ToggleSound, ent, args.Performer);
-
-        ApplyComponentMode(ent, ent.Comp.IsActive);
-        UpdateAppearance(ent);
-        _item.VisualsChanged(ent.Owner);
+        UpdateState(ent, nextActive);
+        _actions.SetToggled(comp.ActionEntity, nextActive);
     }
 
-    private void ApplyComponentMode(Entity<EnvirohelmetToggleComponent> ent, bool active)
+    public void ToggleComponent(Entity<EnvirohelmetToggleComponent> ent, bool active)
     {
+        UpdateState(ent, active);
+    }
+
+    private void UpdateState(Entity<EnvirohelmetToggleComponent> ent, bool active)
+    {
+        var (uid, comp) = ent;
+        comp.IsActive = active;
+        Dirty(uid, comp);
+
+        _appearance.SetData(uid, EnvirohelmetVisuals.IsOpen, active);
+
         if (active)
         {
-            EntityManager.RemoveComponents(ent.Owner, ent.Comp.ClosedComponents);
-            EntityManager.AddComponents(ent.Owner, ent.Comp.OpenComponents);
+            var target = comp.Parent ? Transform(uid).ParentUid : uid;
+
+            if (TerminatingOrDeleted(target))
+                return;
+
+            comp.Target = target;
+            EntityManager.AddComponents(target, comp.Components);
         }
         else
         {
-            EntityManager.RemoveComponents(ent.Owner, ent.Comp.OpenComponents);
-            EntityManager.AddComponents(ent.Owner, ent.Comp.ClosedComponents);
-        }
-    }
+            if (comp.Target == null)
+                return;
 
-    private void OnGetVisuals(Entity<EnvirohelmetToggleComponent> ent, ref GetEquipmentVisualsEvent args)
-    {
-        var state = ent.Comp.IsActive ? ent.Comp.StateOpen : ent.Comp.StateClosed;
+            if (TerminatingOrDeleted(comp.Target.Value))
+                return;
 
-        if (string.IsNullOrEmpty(state))
-            return;
-
-        Log.Debug($"Componente está {ent.Comp.IsActive} no OnGetVisuals.");
-
-        if (ent.Comp.IsActive)
-        {
-            var baseState = "open-equipped-" + args.Slot;
-
-            Log.Debug($"baseState: {baseState} no OnGetVisuals.");
-            var layer = new PrototypeLayerData()
-            {
-                State = state,
-                Visible = true
-            };
-
-            Log.Debug($"layer: {layer} no OnGetVisuals.");
-
-            var insertIndex = args.Layers.Count;
-            for (var i = 0; i < args.Layers.Count; i++)
-            {
-                if (args.Layers[i].Item1 == "open-light")
-                {
-                    insertIndex = i;
-                    break;
-                }
-            }
-
-            Log.Debug($"VisualLayer: {ent.Comp.OpenVisualLayer} no OnGetVisuals.");
-            args.Layers.Insert(insertIndex, (ent.Comp.OpenVisualLayer, layer));
-
-            if (TryComp<ClothingComponent>(ent, out var clothing))
-                Dirty(ent, clothing);
-        }
-        else
-        {
-            var baseState = "equipped-" + args.Slot;
-
-            Log.Debug($"baseState: {baseState} no OnGetVisuals.");
-
-            foreach (var (key, layerData) in args.Layers)
-            {
-                if (key.StartsWith(args.Slot) && !string.IsNullOrEmpty(layerData.State))
-                {
-                    if (layerData.State.StartsWith(baseState))
-                    {
-                        var suffix = layerData.State.Substring(baseState.Length);
-
-                        Log.Debug($"sufixo: {suffix} no OnGetVisuals.");
-
-                        if (suffix.Contains("-unshaded"))
-                            continue;
-
-                        state += suffix;
-                        Log.Debug($"state final: {state} no OnGetVisuals.");
-                        break;
-                    }
-                }
-            }
-            var layer = new PrototypeLayerData()
-            {
-                State = state,
-                Visible = true
-            };
-
-            Log.Debug($"layer: {layer.State} no OnGetVisuals.");
-
-            var insertIndex = args.Layers.Count;
-            for (var i = 0; i < args.Layers.Count; i++)
-            {
-                if (args.Layers[i].Item1 == "light")
-                {
-                    insertIndex = i;
-                    break;
-                }
-            }
-
-            if (TryComp<ClothingComponent>(ent, out var clothing))
-            {
-                Dirty(ent, clothing);
-            }
-
-            Log.Debug($"VisualLayer: {ent.Comp.ClosedVisualLayer} no OnGetVisuals.");
-            args.Layers.Insert(insertIndex, (ent.Comp.ClosedVisualLayer, layer));
-        }
-    }
-
-    private void UpdateAppearance(Entity<EnvirohelmetToggleComponent> ent)
-    {
-        if (TryComp<AppearanceComponent>(ent, out var appearance) && ent.Comp.IsActive)
-        {
-            Log.Debug($"Componente está ativo e usando o IsOpen no SetData.");
-            _appearance.SetData(ent, EnvirohelmetVisuals.IsOpen, ent.Comp.IsActive, appearance);
-        }
-        else
-        {
-            Log.Debug($"Componente está desativado e usando o IsClosed no SetData.");
-            _appearance.SetData(ent, EnvirohelmetVisuals.IsClosed, !ent.Comp.IsActive, appearance);
+            EntityManager.RemoveComponents(comp.Target.Value, comp.RemoveComponents ?? comp.Components);
+            if (comp.ClosedComponents.Count > 0)
+                EntityManager.AddComponents(comp.Target.Value, comp.ClosedComponents);
+            comp.Target = null;
         }
     }
 }

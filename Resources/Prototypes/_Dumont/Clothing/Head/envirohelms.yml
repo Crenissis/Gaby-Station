@@ -115,12 +115,12 @@
   - type: Action
     itemIconStyle: BigItem
   - type: InstantAction
-    event: !type:ToggleClothingEvent
+    event: !type:ToggleEnvirohelmetEvent
 
 - type: entity
   abstract: true
   parent: ClothingHeadEnvirohelmetBase
-  id: ClothingHeadEnvirohealmtToggleableBase
+  id: ClothingHeadEnvirohelmetToggleableBase
   components:
   - type: Sprite
     layers:
@@ -137,27 +137,63 @@
         visible: false
         shader: unshaded
         map: [ "open-light" ]
-  - type: ToggleableVisuals
-    spriteLayer: light
-    clothingVisuals:
-      head:
-      - state: equipped-HELMET-light
-        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.75
+        Radiation: 0.75
+        Caustic: 0.80
   - type: EnvirohelmetToggle
     isActive: false
-    closedClothingVisuals:
-      head:
-      - state: equipped-HELMET
-      - state: equipped-HELMET-unshaded
-        shader: unshaded
-    openClothingVisuals:
+    spriteLayer: open
+    inhandVisuals:
+      left:
+      - state: open-inhand-left
+      right:
+      - state: open-inhand-right
+    clothingVisuals:
       head:
       - state: open-equipped-HELMET
+      - state: open-equipped-HELMET-light
+        shader: unshaded
+    components:
+      - type: PressureProtection
+        highPressureMultiplier: 1
+        lowPressureMultiplier: 1
+      - type: Armor
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.90
+            Slash: 0.90
+            Piercing: 0.90
+            Heat: 0.90
+            Radiation: 0.95
+            Caustic: 0.90
     closedComponents:
       - type: PressureProtection
         highPressureMultiplier: 0.5
         lowPressureMultiplier: 1000
       - type: Armor
+        coverage:
+        - Head
         traumaDeductions:
           Dismemberment: 0.2
           OrganDamage: 0.2
@@ -170,33 +206,15 @@
             Slash: 0.75
             Piercing: 0.8
             Heat: 0.75
-            Radiation: 0.1
-            Caustic: 0.7
-    openComponents:
-      - type: PressureProtection
-        highPressureMultiplier: 1
-        lowPressureMultiplier: 1
-      - type: Armor
-        modifiers:
-          coefficients:
-            Caustic: 0.9
-  - type: GenericVisualizer
-    visuals:
-      enum.EnvirohelmetVisuals.IsOpen:
-        open:
-          False: {visible: false}
-          True: {visible: true, state: open-icon}
-        closed:
-          False: {visible: true, state: icon}
-          True: {visible: false, state: icon}
-      enum.EnvirohelmetVisuals.IsClosed:
-          open:
-            False: {visible: false, state: open-icon}
-            True: {visible: false}
-          closed:
-            False: {visible: false, state: icon}
-            True: {visible: true, state: icon}
-
+            Radiation: 0.75
+            Caustic: 0.80
+  - type: EnvirohelmetVisuals
+    spriteLayer: open
+    clothingVisuals:
+      head:
+      - state: open-equipped-HELMET
+      - state: open-equipped-HELMET-light
+        shader: unshaded
 
 - type: entity
   parent: ClothingHeadEnvirohelmetBase
@@ -212,7 +230,7 @@
 #Cargo
 
 - type: entity
-  parent: ClothingHeadEnvirohelmetBase
+  parent: [ClothingHeadEnvirohelmetBase, BaseCargoContraband]
   id: ClothingHeadEnvirohelmetBitrunner
   name: bitrunner envirohelmet
   description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
@@ -239,7 +257,7 @@
     netsync: false
 
 - type: entity
-  parent: ClothingHeadEnvirohelmetBase
+  parent: [ClothingHeadEnvirohelmetBase, BaseCargoContraband]
   id: ClothingHeadEnvirohelmetCargoTech
   name: cargo tech envirohelmet
   description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
@@ -250,7 +268,7 @@
     sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/cargo_tech.rsi
 
 - type: entity
-  parent: ClothingHeadEnvirohelmetBase
+  parent: [ClothingHeadEnvirohelmetBase, BaseCargoContraband]
   id: ClothingHeadEnvirohelmetMailman
   name: mailman envirohelmet
   description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
@@ -261,7 +279,7 @@
     sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/mailman.rsi
 
 - type: entity
-  parent: ClothingHeadEnvirohelmetBase
+  parent: [ClothingHeadEnvirohelmetBase, BaseCargoContraband]
   id: ClothingHeadEnvirohelmetMaxim
   name: maxim envirohelmet
   description: A predication of decay washes over your mind. Bones charred by fire
@@ -289,7 +307,89 @@
         Radiation: 0.01
 
 - type: entity
-  parent: ClothingHeadEnvirohealmtToggleableBase
+  parent: [ClothingHeadEnvirohelmetToggleableBase, BaseCargoContraband]
+  id: ClothingHeadEnvirohelmetExplorer
+  name: explorer envirohelmet
+  description: An armoured envirohelmet for exploring harsh environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+    heldPrefix: closed
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
+    equippedPrefix: closed
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.65
+        Caustic: 0.65
+  - type: PressureArmorChange
+  - type: EnvirohelmetToggle
+    isActive: false
+    components:
+      - type: PressureProtection
+        highPressureMultiplier: 1
+        lowPressureMultiplier: 1
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.65
+            Slash: 0.65
+            Piercing: 0.7
+            Heat: 0.65
+            Caustic: 0.65
+      - type: PressureArmorChange
+    closedComponents:
+      - type: PressureProtection
+        highPressureMultiplier: 0.5
+        lowPressureMultiplier: 1000
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.65
+            Slash: 0.65
+            Piercing: 0.7
+            Heat: 0.65
+            Caustic: 0.65
+      - type: PressureArmorChange
+
+- type: entity
+  parent: [ClothingHeadEnvirohelmetToggleableBase, BaseCargoContraband]
   id: ClothingHeadEnvirohelmetSalvage
   name: salvage envirohelmet
   description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
@@ -302,108 +402,569 @@
   - type: Clothing
     sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/salvage.rsi
     equippedPrefix: closed
-
-- type: entity
-  parent: ClothingHeadEnvirohelmetBase
-  categories: [ HideSpawnMenu ]
-  id: ClothingHeadEnvirohelmetExplorerOpen
-  name: explorer envirohelmet
-  description: An armoured envirohelmet for exploring harsh environments.
-  components:
-  - type: Sprite
-    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
-    layers:
-    - state: open-icon
-    - state: open-icon-flash
-      visible: false
-      shader: unshaded
-      map: [ "light" ]
-  - type: Clothing
-    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
-    clothingVisuals:
-      head:
-      - state: open-equipped-HELMET
-  - type: Item
-    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
-    size: Normal
-    heldPrefix: open
-    inhandVisuals:
-      left:
-      - state: open-inhand-left
-      right:
-      - state: open-inhand-right
-  - type: ToggleableVisuals
-    spriteLayer: light
-    clothingVisuals:
-      head:
-      - state: open-equipped-HELMET-light
-        shader: unshaded
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:Container {}
-  - type: UserInterface
-    interfaces:
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: ToggleClothing
-    action: ActionToggleEnvirohelmet
-  - type: ToggleableClothing
-    replaceCurrentClothing: true
-    clothingPrototypes:
-      head: ClothingHeadEnvirohelmetExplorerClosed
-
-- type: entity
-  parent: ClothingHeadEnvirohelmetBase
-  id: ClothingHeadEnvirohelmetExplorerClosed
-  name: explorer envirohelmet
-  description: An armoured envirohelmet for exploring harsh environments.
-  components:
-  - type: Sprite
-    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
-  - type: Clothing
-    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/shaft_miner.rsi
     clothingVisuals:
       head:
       - state: equipped-HELMET
       - state: equipped-HELMET-unshaded
         shader: unshaded
   - type: PressureProtection
-    highPressureMultiplier: 0.08
+    highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.25
-      OrganDamage: 0.25
-      BoneDamage: 0.25
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.75
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.1
+        Caustic: 0.7
+  - type: EnvirohelmetToggle
+    isActive: false
+    components:
+      - type: PressureProtection
+        highPressureMultiplier: 1
+        lowPressureMultiplier: 1
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.90
+            Slash: 0.90
+            Piercing: 0.90
+            Heat: 0.90
+            Radiation: 0.95
+            Caustic: 0.90
+    closedComponents:
+      - type: PressureProtection
+        highPressureMultiplier: 0.5
+        lowPressureMultiplier: 1000
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.85
+            Slash: 0.75
+            Piercing: 0.85
+            Heat: 0.85
+            Radiation: 0.1
+            Caustic: 0.7
+
+- type: entity
+  parent: [ClothingHeadEnvirohelmetToggleableBase, BaseCargoContraband]
+  id: ClothingHeadEnvirohelmetSalvageLead
+  name: salvage lead envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/salvlead.rsi
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/salvlead.rsi
+    heldPrefix: closed
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Cargo/salvlead.rsi
+    equippedPrefix: closed
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.65
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0.1
+        Caustic: 0.7
+  - type: EnvirohelmetToggle
+    isActive: false
+    components:
+      - type: PressureProtection
+        highPressureMultiplier: 1
+        lowPressureMultiplier: 1
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.90
+            Slash: 0.90
+            Piercing: 0.90
+            Heat: 0.90
+            Radiation: 0.95
+            Caustic: 0.90
+    closedComponents:
+      - type: PressureProtection
+        highPressureMultiplier: 0.5
+        lowPressureMultiplier: 1000
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.75
+            Slash: 0.65
+            Piercing: 0.75
+            Heat: 0.75
+            Radiation: 0.1
+            Caustic: 0.7
+
+#Dignitary
+
+#Engineering
+
+- type: entity
+  parent: [ClothingHeadEnvirohelmetToggleableBase, BaseEngineeringContraband]
+  id: ClothingHeadEnvirohelmetAtmosV1
+  name: atmospherics envirohelmet
+  description: A special envirohelmet designed for working in low-pressure and high-temperature environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/atmos.rsi
+    layers:
+      - state: V1-icon
+        map: [ "closed" ]
+      - state: open-icon
+        visible: false
+        map: [ "open" ]
+      - state: V1-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - state: open-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "open-light" ]
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/atmos.rsi
+    heldPrefix: V1
+    inhandVisuals:
+      left:
+      - state: V1-inhand-left
+      right:
+      - state: V1-inhand-right
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/atmos.rsi
+    equippedPrefix: V1
+    clothingVisuals:
+      head:
+      - state: V1-equipped-HELMET
+      - state: V1-equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+        Radiation: 0.15
+        Caustic: 0.7
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: V1-equipped-HELMET-light
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    color: "#b3fbff"
+  - type: EnvirohelmetToggle
+    isActive: false
+    components:
+      - type: PressureProtection
+        highPressureMultiplier: 1
+        lowPressureMultiplier: 1
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.9
+            Slash: 0.9
+            Piercing: 0.9
+            Heat: 0.9
+            Radiation: 0.95
+            Caustic: 0.9
+    closedComponents:
+      - type: PressureProtection
+        highPressureMultiplier: 0.08
+        lowPressureMultiplier: 1000
+      - type: Armor
+        coverage:
+        - Head
+        modifiers:
+          coefficients:
+            Blunt: 0.9
+            Slash: 0.9
+            Piercing: 0.9
+            Heat: 0.8
+            Radiation: 0.15
+            Caustic: 0.7
+      - type: TemperatureProtection
+        heatingCoefficient: 0.005
+        coolingCoefficient: 0.005
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetAtmosV1
+  id: ClothingHeadEnvirohelmetAtmosV2
+  name: atmospherics envirohelmet
+  description: An engineering envirohelmet designed for working in low-pressure, highly radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/atmos.rsi
+    layers:
+      - state: V2-icon
+        map: [ "closed" ]
+      - state: open-icon
+        visible: false
+        map: [ "open" ]
+      - state: V2-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - state: open-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "open-light" ]
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/atmos.rsi
+    heldPrefix: V2
+    inhandVisuals:
+      left:
+      - state: V2-inhand-left
+      right:
+      - state: V2-inhand-right
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/atmos.rsi
+    equippedPrefix: V2
+    clothingVisuals:
+      head:
+      - state: V2-equipped-HELMET
+      - state: V2-equipped-HELMET-unshaded
+        shader: unshaded
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: V2-equipped-HELMET-light
+        shader: unshaded
+
+- type: entity
+  parent: [ClothingHeadEnvirohelmetToggleableBase, BaseEngineeringContraband]
+  id: ClothingHeadEnvirohelmetEngineerV1
+  name: engineer envirohelmet
+  description: An engineering envirohelmet designed for working in low-pressure, highly radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    layers:
+      - state: V1-icon
+        map: [ "closed" ]
+      - state: open-icon
+        visible: false
+        map: [ "open" ]
+      - state: V1-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - state: open-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "open-light" ]
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    heldPrefix: V1
+    inhandVisuals:
+      left:
+      - state: V1-inhand-left
+      right:
+      - state: V1-inhand-right
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    equippedPrefix: V1
+    clothingVisuals:
+      head:
+      - state: V1-equipped-HELMET
+      - state: V1-equipped-HELMET-unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Shock: 0.5
+        Caustic: 0.7
+        Radiation: 0.05
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: V1-equipped-HELMET-light
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    color: "#b3fbff"
+  - type: EnvirohelmetToggle
+    isActive: false
+    components:
+      - type: PressureProtection
+        highPressureMultiplier: 1
+        lowPressureMultiplier: 1
+      - type: Armor
+        coverage:
+        - Head
+        traumaDeductions:
+          Dismemberment: 0.2
+          OrganDamage: 0.2
+          BoneDamage: 0.2
+          VeinsDamage: 0
+          NerveDamage: 0
+        modifiers:
+          coefficients:
+            Blunt: 0.90
+            Slash: 0.90
+            Piercing: 0.90
+            Heat: 0.90
+            Radiation: 0.95
+            Caustic: 0.90
+    closedComponents:
+      - type: PressureProtection
+        highPressureMultiplier: 0.1
+        lowPressureMultiplier: 1000
+      - type: Armor
+        coverage:
+        - Head
+        modifiers:
+          coefficients:
+            Blunt: 0.90
+            Slash: 0.90
+            Piercing: 0.90
+            Heat: 0.90
+            Shock: 0.5
+            Caustic: 0.7
+            Radiation: 0.05
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetEngineerV1
+  id: ClothingHeadEnvirohelmetEngineerV2
+  name: engineer envirohelmet
+  description: An engineering envirohelmet designed for working in low-pressure, highly radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    layers:
+      - state: V2-icon
+        map: [ "closed" ]
+      - state: open-icon
+        visible: false
+        map: [ "open" ]
+      - state: V2-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - state: open-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "open-light" ]
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    heldPrefix: V2
+    inhandVisuals:
+      left:
+      - state: V2-inhand-left
+      right:
+      - state: V2-inhand-right
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    equippedPrefix: V2
+    clothingVisuals:
+      head:
+      - state: V2-equipped-HELMET
+      - state: V2-equipped-HELMET-unshaded
+        shader: unshaded
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: V2-equipped-HELMET-light
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetEngineerV1
+  id: ClothingHeadEnvirohelmetEngineerV3
+  name: engineer envirohelmet
+  description: An engineering envirohelmet designed for working in low-pressure, highly radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    layers:
+      - state: V3-icon
+        map: [ "closed" ]
+      - state: open-icon
+        visible: false
+        map: [ "open" ]
+      - state: V3-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - state: open-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "open-light" ]
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    heldPrefix: V3
+    inhandVisuals:
+      left:
+      - state: V3-inhand-left
+      right:
+      - state: V3-inhand-right
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    equippedPrefix: V3
+    clothingVisuals:
+      head:
+      - state: V3-equipped-HELMET
+      - state: V3-equipped-HELMET-unshaded
+        shader: unshaded
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: V3-equipped-HELMET-light
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetEngineerV1
+  id: ClothingHeadEnvirohelmetEngineerV4
+  name: engineer envirohelmet
+  description: An engineering envirohelmet designed for working in low-pressure, highly radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    layers:
+      - state: V4-icon
+        map: [ "closed" ]
+      - state: open-icon
+        visible: false
+        map: [ "open" ]
+      - state: V4-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - state: open-icon-flash
+        visible: false
+        shader: unshaded
+        map: [ "open-light" ]
+  - type: Item
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    heldPrefix: V4
+    inhandVisuals:
+      left:
+      - state: V4-inhand-left
+      right:
+      - state: V4-inhand-right
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/engineer.rsi
+    equippedPrefix: V4
+    clothingVisuals:
+      head:
+      - state: V4-equipped-HELMET
+      - state: V4-equipped-HELMET-unshaded
+        shader: unshaded
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: V4-equipped-HELMET-light
+        shader: unshaded
+
+- type: entity
+  parent: [ClothingHeadEnvirohelmetBase, BaseEngineeringContraband]
+  id: ClothingHeadEnvirohelmetTechAssistant
+  name: tech assistant envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/tech_assistant.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Engineering/tech_assistant.rsi
+  - type: PointLight
+    enabled: false
+    color: "#b3fbff"
+  - type: Armor
     coverage:
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.7
-        Heat: 0.65
-        Caustic: 0.65
-  - type: PressureArmorChange
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:Container {}
-  - type: UserInterface
-    interfaces:
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: ToggleClothing
-    action: ActionToggleEnvirohelmet
-  - type: ToggleableClothing
-    replaceCurrentClothing: true
-    clothingPrototypes:
-      head: ClothingHeadEnvirohelmetExplorerOpen
-
-#Engineering
-
-#Dignitary
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+        Shock: 0.65
+        Caustic: 0.7
+        Radiation: 0.15
 
 #Heads
 
