@@ -59,6 +59,10 @@
         {
             "name": "closed",
             "directions": 1
+        },
+        {
+            "name": "closed_unlit",
+            "directions": 1
         }
     ]
 }
