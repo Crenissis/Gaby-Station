@@ -157,17 +157,6 @@
         Caustic: 0.80
   - type: EnvirohelmetToggle
     isActive: false
-    spriteLayer: open
-    inhandVisuals:
-      left:
-      - state: open-inhand-left
-      right:
-      - state: open-inhand-right
-    clothingVisuals:
-      head:
-      - state: open-equipped-HELMET
-      - state: open-equipped-HELMET-light
-        shader: unshaded
     components:
       - type: PressureProtection
         highPressureMultiplier: 1
@@ -215,6 +204,11 @@
       - state: open-equipped-HELMET
       - state: open-equipped-HELMET-light
         shader: unshaded
+    inhandVisuals:
+      left:
+      - state: open-inhand-left
+      right:
+      - state: open-inhand-right
 
 - type: entity
   parent: ClothingHeadEnvirohelmetBase

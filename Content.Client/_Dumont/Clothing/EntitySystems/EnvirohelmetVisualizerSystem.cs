@@ -24,7 +24,7 @@ public sealed class EnvirohelmetVisualizerSystem : VisualizerSystem<Envirohelmet
         base.Initialize();
         SubscribeLocalEvent<EnvirohelmetVisualsComponent, GetEquipmentVisualsEvent>(OnGetEquipmentVisuals,
             after: new[] { typeof(ClientClothingSystem), typeof(ToggleableVisualsSystem) });
-        SubscribeLocalEvent<EnvirohelmetToggleComponent, GetInhandVisualsEvent>(OnGetHeldVisuals,
+        SubscribeLocalEvent<EnvirohelmetVisualsComponent, GetInhandVisualsEvent>(OnGetHeldVisuals,
             after: new[] { typeof(ItemSystem) });
     }
 
@@ -104,7 +104,7 @@ public sealed class EnvirohelmetVisualizerSystem : VisualizerSystem<Envirohelmet
         }
     }
 
-    private void OnGetHeldVisuals(EntityUid uid, EnvirohelmetToggleComponent component, GetInhandVisualsEvent args)
+    private void OnGetHeldVisuals(EntityUid uid, EnvirohelmetVisualsComponent component, GetInhandVisualsEvent args)
     {
         if (!TryComp(uid, out AppearanceComponent? appearance)
             || !AppearanceSystem.TryGetData<bool>(uid, EnvirohelmetVisuals.IsOpen, out var isOpen, appearance)

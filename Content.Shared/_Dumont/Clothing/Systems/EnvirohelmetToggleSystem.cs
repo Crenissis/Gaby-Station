@@ -1,8 +1,5 @@
 ﻿using Content.Shared.Actions;
 using Content.Shared._Dumont.Clothing.Components;
-using Content.Shared.Clothing;
-using Content.Shared.Clothing.Components;
-using Content.Shared.Hands;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Item;
 using Robust.Shared.Audio.Systems;
