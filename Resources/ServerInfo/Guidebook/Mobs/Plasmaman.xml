@@ -51,7 +51,7 @@
   Alguns capacetes de contenção apresentam dois estados possíveis:
 
   - Aberto: Apresentam menor capacidade de proteção mas permitem a visualização da face da Pessoa Plasma.
-  - Fechado: Apresentam maior capacidde de proteção e oferecem [bold]proteção contra o vácuo[/bold].
+  - Fechado: Apresentam maior capacidade de proteção e oferecem [bold]proteção contra o vácuo[/bold].
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHeadEnvirohelmetSalvage" Caption="Capacete hermético da Logística"/>

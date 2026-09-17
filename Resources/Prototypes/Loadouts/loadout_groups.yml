@@ -1408,7 +1408,7 @@
 # Dumont start
 - type: loadoutGroup
   id: TechnicalAssistantShoes
-  name: loadout - group-technical-assistant-shoes
+  name: loadout-group-technical-assistant-shoes
   minLimit: 1
   exclusiveWith: FEET #Goostation
   loadouts: [WorkBoots, EngineeringWinterBoots]

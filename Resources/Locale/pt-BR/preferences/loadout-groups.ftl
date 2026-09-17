@@ -147,6 +147,7 @@ loadout-group-chief-engineer-neck = Pescoço do engenheiro-chefe
 loadout-group-chief-engineer-shoes = Sapatos do engenheiro-chefe
 
 loadout-group-technical-assistant-jumpsuit = Roupa do assistente técnico
+loadout-group-technical-assistant-shoes = Sapatos do assistente técnico
 
 loadout-group-station-engineer-head = Chapeu do engenheiro de estação
 loadout-group-station-engineer-jumpsuit = Roupa do engenheiro de estação

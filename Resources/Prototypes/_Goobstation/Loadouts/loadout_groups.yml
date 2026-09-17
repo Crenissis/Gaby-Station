@@ -135,30 +135,30 @@
 
 # Medical Doctor
 
-- type: loadoutGroup
-  id: MedicalDoctorEnvirohelm
-  name: loadout-group-medical-doctor-envirohelm
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - MedicalDoctorEnvirohelm
-
-- type: loadoutGroup
-  id: MedicalDoctorEnvirosuit
-  name: loadout-group-medical-doctor-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - MedicalDoctorEnvirosuit
-
-- type: loadoutGroup
-  id: MedicalDoctorEnvirogloves
-  name: loadout-group-medical-doctor-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - WhiteEnvirogloves
-  - NitrileEnvirogloves
+#- type: loadoutGroup
+#  id: MedicalDoctorEnvirohelm
+#  name: loadout-group-medical-doctor-envirohelm
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - MedicalDoctorEnvirohelm
+#
+#- type: loadoutGroup
+#  id: MedicalDoctorEnvirosuit
+#  name: loadout-group-medical-doctor-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - MedicalDoctorEnvirosuit
+#
+#- type: loadoutGroup
+#  id: MedicalDoctorEnvirogloves
+#  name: loadout-group-medical-doctor-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - WhiteEnvirogloves
+#  - NitrileEnvirogloves
 
 # Medical Intern
 
@@ -241,32 +241,32 @@
 
 # Cargo Technician
 
-- type: loadoutGroup
-  id: CargoTechnicianEnvirohelm
-  name: loadout-group-cargo-technician-envirohelm
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CargoTechnicianEnvirohelm
-  - MailCarrierEnvirohelm
-
-- type: loadoutGroup
-  id: CargoTechnicianEnvirosuit
-  name: loadout-group-cargo-technician-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CargoTechnicianEnvirosuit
-  - MailCarrierEnvirosuit
-
-- type: loadoutGroup
-  id: CargoTechnicianEnvirogloves
-  name: loadout-group-cargo-technician-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CargoTechnicianEnvirogloves
-  - WhiteEnvirogloves
+#- type: loadoutGroup
+#  id: CargoTechnicianEnvirohelm
+#  name: loadout-group-cargo-technician-envirohelm
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - CargoTechnicianEnvirohelm
+#  - MailCarrierEnvirohelm
+#
+#- type: loadoutGroup
+#  id: CargoTechnicianEnvirosuit
+#  name: loadout-group-cargo-technician-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - CargoTechnicianEnvirosuit
+#  - MailCarrierEnvirosuit
+#
+#- type: loadoutGroup
+#  id: CargoTechnicianEnvirogloves
+#  name: loadout-group-cargo-technician-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - CargoTechnicianEnvirogloves
+#  - WhiteEnvirogloves
 
 # Quartermaster
 
@@ -298,55 +298,55 @@
 
 # Station Engineer
 
-- type: loadoutGroup
-  id: StationEngineerEnvirohelm
-  name: loadout-group-station-engineer-envirohelm
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StationEngineerEnvirohelm
-
-- type: loadoutGroup
-  id: StationEngineerEnvirosuit
-  name: loadout-group-station-engineer-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StationEngineerEnvirosuit
-
-- type: loadoutGroup
-  id: StationEngineerEnvirogloves
-  name: loadout-group-station-engineer-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StationEngineerEnvirogloves
+#- type: loadoutGroup
+#  id: StationEngineerEnvirohelm
+#  name: loadout-group-station-engineer-envirohelm
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - StationEngineerEnvirohelm
+#
+#- type: loadoutGroup
+#  id: StationEngineerEnvirosuit
+#  name: loadout-group-station-engineer-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - StationEngineerEnvirosuit
+#
+#- type: loadoutGroup
+#  id: StationEngineerEnvirogloves
+#  name: loadout-group-station-engineer-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - StationEngineerEnvirogloves
 
 # Technical Assistant
 
-- type: loadoutGroup
-  id: TechnicalAssistantEnvirohelm
-  name: loadout-group-technical-assistant-envirohelm
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StationEngineerEnvirohelm
-
-- type: loadoutGroup
-  id: TechnicalAssistantEnvirosuit
-  name: loadout-group-technical-assistant-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StationEngineerEnvirosuit
-
-- type: loadoutGroup
-  id: TechnicalAssistantEnvirogloves
-  name: loadout-group-technical-assistant-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StationEngineerEnvirogloves
+#- type: loadoutGroup
+#  id: TechnicalAssistantEnvirohelm
+#  name: loadout-group-technical-assistant-envirohelm
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - StationEngineerEnvirohelm
+#
+#- type: loadoutGroup
+#  id: TechnicalAssistantEnvirosuit
+#  name: loadout-group-technical-assistant-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - StationEngineerEnvirosuit
+#
+#- type: loadoutGroup
+#  id: TechnicalAssistantEnvirogloves
+#  name: loadout-group-technical-assistant-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - StationEngineerEnvirogloves
 
 # Atmospheric Technician
 
@@ -432,29 +432,29 @@
 
 # Security Cadet
 
-- type: loadoutGroup
-  id: SecurityCadetEnvirohelm
-  name: loadout-group-security-cadet-envirohelm
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - SecurityOfficerEnvirohelm
-
-- type: loadoutGroup
-  id: SecurityCadetEnvirosuit
-  name: loadout-group-security-cadet-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - SecurityOfficerEnvirosuit
-
-- type: loadoutGroup
-  id: SecurityCadetEnvirogloves
-  name: loadout-group-security-cadet-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - BlackEnvirogloves
+#- type: loadoutGroup
+#  id: SecurityCadetEnvirohelm
+#  name: loadout-group-security-cadet-envirohelm
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - SecurityOfficerEnvirohelm
+#
+#- type: loadoutGroup
+#  id: SecurityCadetEnvirosuit
+#  name: loadout-group-security-cadet-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - SecurityOfficerEnvirosuit
+#
+#- type: loadoutGroup
+#  id: SecurityCadetEnvirogloves
+#  name: loadout-group-security-cadet-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - BlackEnvirogloves
 
 # Detective
 
@@ -518,29 +518,29 @@
 
 # Head of Personnel
 
-- type: loadoutGroup
-  id: HoPEnvirohelm
-  name: loadout-group-hop-envirohelm
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - HoPEnvirohelm
-
-- type: loadoutGroup
-  id: HoPEnvirosuit
-  name: loadout-group-hop-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - HoPEnvirosuit
-
-- type: loadoutGroup
-  id: HoPEnvirogloves
-  name: loadout-group-hop-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - HoPEnvirogloves
+#- type: loadoutGroup
+#  id: HoPEnvirohelm
+#  name: loadout-group-hop-envirohelm
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - HoPEnvirohelm
+#
+#- type: loadoutGroup
+#  id: HoPEnvirosuit
+#  name: loadout-group-hop-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - HoPEnvirosuit
+#
+#- type: loadoutGroup
+#  id: HoPEnvirogloves
+#  name: loadout-group-hop-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - HoPEnvirogloves
 
 - type: loadoutGroup
   id: HoPGloves
@@ -553,8 +553,8 @@
 # Centcomm Officer
 
 - type: loadoutGroup
-  id: CentComOfficerEnvirohelm
-  name: loadout-group-centcom-officer-envirohelm
+  id: CentComOfficerEnvirohelmet
+  name: loadout-group-centcom-officer-envirohelmet
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -1051,29 +1051,29 @@
   - SnowjacksBso
   - CombatHighHeeledBoots # GabyStation
 
-- type: loadoutGroup
-  id: BlueshieldOfficerEnvirohelm
-  name: loadout-group-bso-envirohelm
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - BlueshieldOfficerEnvirohelm
-
-- type: loadoutGroup
-  id: BlueshieldOfficerEnvirosuit
-  name: loadout-group-bso-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - BlueshieldOfficerEnvirosuit
-
-- type: loadoutGroup
-  id: BlueshieldOfficerEnvirogloves
-  name: loadout-group-bso-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CombatEnvirogloves
+#- type: loadoutGroup
+#  id: BlueshieldOfficerEnvirohelm
+#  name: loadout-group-bso-envirohelm
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - BlueshieldOfficerEnvirohelm
+#
+#- type: loadoutGroup
+#  id: BlueshieldOfficerEnvirosuit
+#  name: loadout-group-bso-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - BlueshieldOfficerEnvirosuit
+#
+#- type: loadoutGroup
+#  id: BlueshieldOfficerEnvirogloves
+#  name: loadout-group-bso-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - CombatEnvirogloves
 
 - type: loadoutGroup
   id: BlueshieldOfficerGloves

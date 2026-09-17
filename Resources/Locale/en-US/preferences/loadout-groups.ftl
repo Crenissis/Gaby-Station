@@ -148,6 +148,7 @@ loadout-group-chief-engineer-neck = Chief Engineer neck
 loadout-group-chief-engineer-shoes = Chief Engineer shoes
 
 loadout-group-technical-assistant-jumpsuit = Technical Assistant jumpsuit
+loadout-group-technical-assistant-shoes = Technical Assistant shoes
 
 loadout-group-station-engineer-head = Station Engineer head
 loadout-group-station-engineer-jumpsuit = Station Engineer jumpsuit

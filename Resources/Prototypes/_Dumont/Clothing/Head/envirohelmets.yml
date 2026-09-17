@@ -2177,7 +2177,6 @@
     sprite: _Dumont/Clothing/Head/Envirohelms/Service/service_worker.rsi
   - type: Clothing
     sprite: _Dumont/Clothing/Head/Envirohelms/Service/service_worker.rsi
-    mask: /Textures/Effects/LightMasks/cone.png
 
 - type: entity
   parent: ClothingHeadEnvirohelmetBase
