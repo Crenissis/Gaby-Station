@@ -71,7 +71,7 @@
 
 - type: loadoutGroup
   id: BitrunnerEnvirohelmet
-  name: loadout-group-bitrunner-envirohelm
+  name: loadout-group-bitrunner-envirohelmet
   minLimit: 1
   maxLimit: 1
   loadouts:

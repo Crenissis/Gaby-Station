@@ -1,18 +1,24 @@
-# Cargo
+# Bitrunner
 loadout-group-bitrunner-jumpsuit = Macacão do Bitrunner
 loadout-group-bitrunner-backpack = Mochila do Bitrunner
 loadout-group-bitrunner-shoes = Sapatos do Bitrunner
 
-loadout-group-bitrunner-envirohelm = Capacete hermético de Bitrunner
+loadout-group-bitrunner-envirohelmet = Capacete hermético de Bitrunner
 loadout-group-bitrunner-envirosuit = Traje hermético de Bitrunner
 loadout-group-bitrunner-envirogloves = Luvas herméticas de Bitrunner
 loadout-group-bitrunner-enviroboots = Botas herméticas de Bitrunner
 
-# Security
-loadout-group-prisoner-envirohelm = Capacete hermético de prisioneiro
-loadout-group-prisoner-envirosuit = Traje hermético de prisioneiro
-loadout-group-prisoner-envirogloves = Luvas herméticas de prisioneiro
-loadout-group-prisoner-enviroboost = Botas herméticas de prisoneiro
+# Perma Prisoner
+loadout-group-prisoner-envirohelmet = Capacete hermético de Prisioneiro
+loadout-group-prisoner-envirosuit = Traje hermético de Prisioneiro
+loadout-group-prisoner-envirogloves = Luvas herméticas de Prisioneiro
+loadout-group-prisoner-enviroboots = Botas herméticas de Prisioneiro
+
+# Prison Guard
+loadout-group-prison-guard-envirohelmet = Capacete hermético do Guarda Prisional
+loadout-group-prison-guard-envirosuit = Traje hermético do Guarda Prisional
+loadout-group-prison-guard-envirogloves = Luvas herméticas do Guarda Prisional
+loadout-group-prison-guard-enviroboots= Botas herméticas do Guarda Prisional
 
 # Research Director
 loadout-group-research-director-envirohelmet = Capacete hermético do Diretor de Pesquisa
@@ -45,10 +51,10 @@ loadout-group-medic-envirogloves = Luvas herméticas de Médico
 loadout-group-medic-enviroboots = Botas herméticas de Médico
 
 # Medical Intern
-loadout-group-medical-intern-envirohelmet = Capacete hermético de Estagiário Médico
-loadout-group-medical-intern-envirosuit = Traje hermético de Estagiário Médico
-loadout-group-medical-intern-envirogloves = Luvas herméticas de Estagiário Médico
-loadout-group-medical-intern-enviroboots = Botas herméticas de Estagiário Médico
+loadout-group-medical-intern-envirohelmet = Capacete hermético de Médico em Treinamento
+loadout-group-medical-intern-envirosuit = Traje hermético de Médico em Treinamento
+loadout-group-medical-intern-envirogloves = Luvas herméticas de Médico em Treinamento
+loadout-group-medical-intern-enviroboots = Botas herméticas de Médico em Treinamento
 
 # Paramedic
 loadout-group-paramedic-envirohelmet = Capacete hermético do Paramédico
@@ -81,60 +87,60 @@ loadout-group-quartermaster-envirogloves =  Luvas herméticas do Almoxarife
 loadout-group-quartermaster-enviroboots =  Botas herméticas do Almoxarife
 
 # Station Engineer
-loadout-group-engineer-envirohelmet = Station Engineer Capacete hermético
-loadout-group-engineer-envirosuit = Station Engineer Traje hermético
-loadout-group-engineer-envirogloves = Station Engineer Luvas herméticas
-loadout-group-engineer-enviroboots = Station Engineer Botas herméticas
+loadout-group-engineer-envirohelmet = Capacete hermético de Engenheiro
+loadout-group-engineer-envirosuit = Traje hermético de Engenheiro
+loadout-group-engineer-envirogloves = Luvas herméticas de Engenheiro
+loadout-group-engineer-enviroboots = Botas herméticas de Engenheiro
 
 # Technical Assistant
-loadout-group-technical-assistant-envirohelmet = Technical Assistant Capacete hermético
-loadout-group-technical-assistant-envirosuit = Technical Assistant Traje hermético
-loadout-group-technical-assistant-envirogloves = Technical Assistant Luvas herméticas
-loadout-group-technical-assistant-enviroboots = Technical Assistant Botas herméticas
+loadout-group-technical-assistant-envirohelmet = Capacete hermético de Assistente Técnico
+loadout-group-technical-assistant-envirosuit = Traje hermético de Assistente Técnico
+loadout-group-technical-assistant-envirogloves = Luvas herméticas de Assistente Técnico
+loadout-group-technical-assistant-enviroboots = Botas herméticas de Assistente Técnico
 
 # atmospheric-technicianpheric Technician
-loadout-group-atmospheric-technician-envirohelmet = Atmospheric Technician Capacete hermético
-loadout-group-atmospheric-technician-envirosuit = Atmospheric Technician Traje hermético
-loadout-group-atmospheric-technician-envirogloves = Atmospheric Technician Luvas herméticas
-loadout-group-atmospheric-technician-enviroboots = Atmospheric Technician Botas herméticas
+loadout-group-atmospheric-technician-envirohelmet = Capacete hermético de Técnico Atmosferico
+loadout-group-atmospheric-technician-envirosuit = Traje hermético de Técnico Atmosferico
+loadout-group-atmospheric-technician-envirogloves = Luvas herméticas de Técnico Atmosferico
+loadout-group-atmospheric-technician-enviroboots = Botas herméticas de Técnico Atmosferico
 
 # Chief Engineer
-loadout-group-chief-engineer-envirohelmet = Chief Engineer Capacete hermético
-loadout-group-chief-engineer-envirosuit = Chief Engineer Traje hermético
-loadout-group-chief-engineer-envirogloves = Chief Engineer Luvas herméticas
-loadout-group-chief-engineer-enviroboots = Chief Engineer Botas herméticas
+loadout-group-chief-engineer-envirohelmet = Capacete hermético do Engenheiro Chefe
+loadout-group-chief-engineer-envirosuit = Traje hermético do Engenheiro Chefe
+loadout-group-chief-engineer-envirogloves = Luvas herméticas do Engenheiro Chefe
+loadout-group-chief-engineer-enviroboots = Botas herméticas do Engenheiro Chefe
 
 # Security Officer
-loadout-group-security-officer-envirohelmet = Security Officer Capacete hermético
-loadout-group-security-officer-envirosuit = Security Officer Traje hermético
-loadout-group-security-officer-envirogloves = Security Officer Luvas herméticas
-loadout-group-security-officer-enviroboots = Security Officer Botas herméticas
+loadout-group-security-officer-envirohelmet = Capacete hermético de Oficial de Segurança
+loadout-group-security-officer-envirosuit = Traje hermético de Oficial de Segurança
+loadout-group-security-officer-envirogloves = Luvas herméticas de Oficial de Segurança
+loadout-group-security-officer-enviroboots = Botas herméticas de Oficial de Segurança
 
 # Security Cadet
-loadout-group-cadet-envirohelmet = Security Cadet Capacete hermético
-loadout-group-cadet-envirosuit = Security Cadet Traje hermético
-loadout-group-cadet-envirogloves = Security Cadet Luvas herméticas
-loadout-group-cadet-enviroboots = Security Cadet Botas herméticas
+loadout-group-cadet-envirohelmet = Capacete hermético de Cadete de Segurança
+loadout-group-cadet-envirosuit = Traje hermético de Cadete de Segurança
+loadout-group-cadet-envirogloves = Luvas herméticas de Cadete de Segurança
+loadout-group-cadet-enviroboots = Botas herméticas de Cadete de Segurança
 
 # Detective
-loadout-group-detective-envirohelmet = Detective Capacete hermético
-loadout-group-detective-envirosuit = Detective Traje hermético
-loadout-group-detective-envirogloves = Detective Luvas herméticas
-loadout-group-detective-enviroboots = Detective Botas herméticas
-loadout-group-detective-gloves = Detective gloves
+loadout-group-detective-envirohelmet = Capacete hermético do Detetive
+loadout-group-detective-envirosuit = Traje hermético do Detetive
+loadout-group-detective-envirogloves = Luvas herméticas do Detetive
+loadout-group-detective-enviroboots = Botas herméticas do Detetive
+loadout-group-detective-gloves = Luvas de Detetive
 
 # Warden
-loadout-group-warden-envirohelmet = Warden Capacete hermético
-loadout-group-warden-envirosuit = Warden Traje hermético
-loadout-group-warden-envirogloves = Warden Luvas herméticas
-loadout-group-warden-enviroboots = Warden Botas herméticas
+loadout-group-warden-envirohelmet = Capacete hermético do Carcereiro
+loadout-group-warden-envirosuit = Traje hermético do Carcereiro
+loadout-group-warden-envirogloves = Luvas herméticas do Carcereiro
+loadout-group-warden-enviroboots = Botas herméticas do Carcereiro
 
 # Head of Personnel
-loadout-group-head-of-personnel-envirohelmet = Head of Personnel Capacete hermético
-loadout-group-head-of-personnel-envirosuit = Head of Personnel Traje hermético
-loadout-group-head-of-personnel-envirogloves = Head of Personnel Luvas herméticas
-loadout-group-head-of-personnel-enviroboots = Head of Personnel Botas herméticas
-loadout-group-head-of-personnel-gloves = Head of Personnel gloves
+loadout-group-head-of-personnel-envirohelmet = Capacete hermético do Chefe dos Funcionários
+loadout-group-head-of-personnel-envirosuit = Traje hermético do Chefe dos Funcionários
+loadout-group-head-of-personnel-envirogloves = Luvas herméticas do Chefe dos Funcionários
+loadout-group-head-of-personnel-enviroboots = Botas herméticas do Chefe dos Funcionários
+loadout-group-head-of-personnel-gloves = Luvas do Chefe dos Funcionários
 
 # CentCom Officer
 loadout-group-centcom-officer-envirohelmet = CentCom Officer Capacete hermético
@@ -142,159 +148,186 @@ loadout-group-centcom-officer-envirosuit = CentCom Officer Traje hermético
 loadout-group-centcom-officer-envirogloves = CentCom Officer Luvas herméticas
 
 # Botanist
-loadout-group-botanist-envirohelmet = Botanist Capacete hermético
-loadout-group-botanist-envirosuit = Botanist Traje hermético
-loadout-group-botanist-envirogloves = Botanist Luvas herméticas
-loadout-group-botanist-enviroboots = Botanist Botas herméticas
+loadout-group-botanist-envirohelmet = Capacete hermético de Botânico
+loadout-group-botanist-envirosuit = Traje hermético de Botânico
+loadout-group-botanist-envirogloves = Luvas herméticas de Botânico
+loadout-group-botanist-enviroboots = Botas herméticas de Botânico
 
 # Chaplain
-loadout-group-chaplain-envirohelmet = Chaplain Capacete hermético
-loadout-group-chaplain-envirosuit = Chaplain Traje hermético
-loadout-group-chaplain-envirogloves = Chaplain Luvas herméticas
-loadout-group-chaplain-enviroboots = Chaplain Botas herméticas
+loadout-group-chaplain-envirohelmet = Capacete hermético do Capelão
+loadout-group-chaplain-envirosuit = Traje hermético do Capelão
+loadout-group-chaplain-envirogloves = Luvas herméticas do Capelão
+loadout-group-chaplain-enviroboots = Botas herméticas do Capelão
 
 # Clown
-loadout-group-clown-envirohelmet = Clown Capacete hermético
-loadout-group-clown-envirosuit = Clown Traje hermético
-loadout-group-clown-envirogloves = Clown Luvas herméticas
-loadout-group-clown-enviroboots = Clown Botas herméticas
+loadout-group-clown-envirohelmet = Capacete hermético do Palhaço
+loadout-group-clown-envirosuit = Traje hermético do Palhaço
+loadout-group-clown-envirogloves = Luvas herméticas do Palhaço
+loadout-group-clown-enviroboots = Botas herméticas do Palhaço
 
 # Chef
-loadout-group-chef-envirohelmet = Chef Capacete hermético
-loadout-group-chef-envirosuit = Chef Traje hermético
-loadout-group-chef-envirogloves = Chef Luvas herméticas
-loadout-group-chef-enviroboots = Chef Botas herméticas
+loadout-group-chef-envirohelmet = Capacete hermético de Chef de Cozinha
+loadout-group-chef-envirosuit = Traje hermético de Chef de Cozinha
+loadout-group-chef-envirogloves = Luvas herméticas de Chef de Cozinha
+loadout-group-chef-enviroboots = Botas herméticas de Chef de Cozinha
 
 # Janitor
-loadout-group-janitor-envirohelmet = Janitor Capacete hermético
-loadout-group-janitor-envirosuit = Janitor Traje hermético
-loadout-group-janitor-envirogloves = Janitor Luvas herméticas
-loadout-group-janitor-enviroboots = Janitor Botas herméticas
+loadout-group-janitor-envirohelmet = Capacete hermético de Zelador
+loadout-group-janitor-envirosuit = Traje hermético de Zelador
+loadout-group-janitor-envirogloves = Luvas herméticas de Zelador
+loadout-group-janitor-enviroboots = Botas herméticas de Zelador
 
 # Librarian
-loadout-group-librarian-envirohelmet = Librarian Capacete hermético
-loadout-group-librarian-envirosuit = Librarian Traje hermético
-loadout-group-librarian-envirogloves = Librarian Luvas herméticas
-loadout-group-librarian-enviroboots = Librarian Botas herméticas
+loadout-group-librarian-envirohelmet = Capacete hermético do Bibliotecário
+loadout-group-librarian-envirosuit = Traje hermético do Bibliotecário
+loadout-group-librarian-envirogloves = Luvas herméticas do Bibliotecário
+loadout-group-librarian-enviroboots = Botas herméticas do Bibliotecário
 
 # Mime
-loadout-group-mime-envirohelmet = Mime Capacete hermético
-loadout-group-mime-envirosuit = Mime Traje hermético
-loadout-group-mime-envirogloves = Mime Luvas herméticas
-loadout-group-mime-enviroboots = Mime Botas herméticas
-loadout-group-mime-gloves = Mime gloves
+loadout-group-mime-envirohelmet = Capacete hermético do Mímico
+loadout-group-mime-envirosuit = Traje hermético do Mímico
+loadout-group-mime-envirogloves = Luvas herméticas do Mímico
+loadout-group-mime-enviroboots = Botas herméticas do Mímico
+loadout-group-mime-gloves = Luvas de Mímico
 
 # Assistant
-loadout-group-passenger-envirohelmet = Assistant Capacete hermético
-loadout-group-passenger-envirosuit = Assistant Traje hermético
-loadout-group-passenger-envirogloves = Assistant Luvas herméticas
-loadout-group-passenger-enviroboots = Assistant Botas herméticas
+loadout-group-passenger-envirohelmet = Capacete hermético de Assistente
+loadout-group-passenger-envirosuit = Traje hermético de Assistente
+loadout-group-passenger-envirogloves = Luvas herméticas de Assistente
+loadout-group-passenger-enviroboots = Botas herméticas de Assistente
 
 # Musician
-loadout-group-musician-envirohelmet = Musician Capacete hermético
-loadout-group-musician-envirosuit = Musician Traje hermético
-loadout-group-musician-envirogloves = Musician Luvas herméticas
-loadout-group-musician-enviroboots = Musician Botas herméticas
+loadout-group-musician-envirohelmet = Capacete hermético do Músico
+loadout-group-musician-envirosuit = Traje hermético do Músico
+loadout-group-musician-envirogloves = Luvas herméticas do Músico
+loadout-group-musician-enviroboots = Botas herméticas do Músico
 
 # Service Worker
-loadout-group-service-worker-envirohelmet = Service Worker Capacete hermético
-loadout-group-service-worker-envirosuit = Service Worker Traje hermético
-loadout-group-service-worker-envirogloves = Service Worker Luvas herméticas
-loadout-group-service-worker-enviroboots = Service Worker Botas herméticas
+loadout-group-service-worker-envirohelmet = Capacete hermético de Diarista
+loadout-group-service-worker-envirosuit = Traje hermético de Diarista
+loadout-group-service-worker-envirogloves = Luvas herméticas de Diarista
+loadout-group-service-worker-enviroboots = Botas herméticas de Diarista
 
 # Bartender
-loadout-group-bartender-envirohelmet = Bartender Capacete hermético
-loadout-group-bartender-envirosuit = Bartender Traje hermético
-loadout-group-bartender-envirogloves = Bartender Luvas herméticas
-loadout-group-bartender-enviroboots = Bartender Botas herméticas
+loadout-group-bartender-envirohelmet = Capacete hermético de Barista
+loadout-group-bartender-envirosuit = Traje hermético de Barista
+loadout-group-bartender-envirogloves = Luvas herméticas de Barista
+loadout-group-bartender-enviroboots = Botas herméticas de Barista
 
 # Lawyer
-loadout-group-lawyer-envirohelmet = Lawyer Capacete hermético
-loadout-group-lawyer-envirosuit = Lawyer Traje hermético
-loadout-group-lawyer-envirogloves = Lawyer Luvas herméticas
-loadout-group-lawyer-enviroboots = Lawyer Botas herméticas
+loadout-group-lawyer-envirohelmet = Capacete hermético de Advogado
+loadout-group-lawyer-envirosuit = Traje hermético de Advogado
+loadout-group-lawyer-envirogloves = Luvas herméticas de Advogado
+loadout-group-lawyer-enviroboots = Botas herméticas de Advogado
 
 # Nanotrasen Representative
-loadout-group-nanotrasen-representative-envirohelmet = Nanotrasen Representative Capacete hermético
-loadout-group-nanotrasen-representative-envirosuit = Nanotrasen Representative Traje hermético
-loadout-group-nanotrasen-representative-envirogloves = Nanotrasen Representative Luvas herméticas
-loadout-group-nanotrasen-representative-enviroboots = Nanotrasen Representative Botas herméticas
-loadout-group-nanotrasen-representative-gloves = Nanotrasen Representative gloves
+loadout-group-nanotrasen-representative-envirohelmet = Capacete hermético do Representante da Nanotrasen
+loadout-group-nanotrasen-representative-envirosuit = Traje hermético do Representante da Nanotrasen
+loadout-group-nanotrasen-representative-envirogloves = Luvas herméticas do Representante da Nanotrasen
+loadout-group-nanotrasen-representative-enviroboots = Botas herméticas do Representante da Nanotrasen
+loadout-group-nanotrasen-representative-gloves = Luvas do Representante da Nanotrasen
 
 # Blueshield Officer
-loadout-group-greenshield-officer-envirohelmet = Greenshield Officer Capacete hermético
-loadout-group-greenshield-officer-envirosuit = Greenshield Officer Traje hermético
-loadout-group-greenshield-officer-envirogloves = Greenshield Officer Luvas herméticas
-loadout-group-greenshield-officer-enviroboots = Greenshield Officer Botas herméticas
-loadout-group-bso-gloves = Blueshield Officer gloves
+loadout-group-greenshield-officer-envirohelmet = Capacete hermético do Oficial Greenshield
+loadout-group-greenshield-officer-envirosuit = Traje hermético do Oficial Greenshield
+loadout-group-greenshield-officer-envirogloves = Luvas herméticas do Oficial Greenshield
+loadout-group-greenshield-officer-enviroboots = Botas herméticas do Oficial Greenshield
+loadout-group-bso-gloves = Luvas do Oficial Greenshield
 
 # Reporter
-loadout-group-reporter-envirohelmet = Reporter Capacete hermético
-loadout-group-reporter-envirosuit = Reporter Traje hermético
-loadout-group-reporter-envirogloves = Reporter Luvas herméticas
-loadout-group-reporter-enviroboots = Reporter Botas herméticas
+loadout-group-reporter-envirohelmet = Capacete hermético do Repórter
+loadout-group-reporter-envirosuit = Traje hermético do Repórter
+loadout-group-reporter-envirogloves = Luvas herméticas do Repórter
+loadout-group-reporter-enviroboots = Botas herméticas do Repórter
 
 # Captain
-loadout-group-captain-envirohelmet = Captain Capacete hermético
-loadout-group-captain-envirosuit = Captain Traje hermético
-loadout-group-captain-envirogloves = Captain Luvas herméticas
-loadout-group-captain-enviroboots = Captain Botas herméticas
-loadout-group-captain-gloves = Captain gloves
+loadout-group-captain-envirohelmet = Capacete hermético do Capitão
+loadout-group-captain-envirosuit = Traje hermético do Capitão
+loadout-group-captain-envirogloves = Luvas herméticas do Capitão
+loadout-group-captain-enviroboots = Botas herméticas do Capitão
+loadout-group-captain-gloves = Luvas do Capitão
 
 
 # Salvage Specialist
-loadout-group-salvage-envirohelmet = Salvage Specialist Capacete hermético
-loadout-group-salvage-envirosuit = Salvage Specialist Traje hermético
-loadout-group-salvage-envirogloves = Salvage Specialist Luvas herméticas
-loadout-group-salvage-enviroboots = Salvage Botas herméticas
+loadout-group-salvage-envirohelmet = Capacete hermético de Especialista de Exploração
+loadout-group-salvage-envirosuit = Traje hermético de Especialista de Exploração
+loadout-group-salvage-envirogloves = Luvas herméticas de Especialista de Exploração
+loadout-group-salvage-enviroboots = Botas herméticas de Especialitas de Exploração
 
 # Chemist
-loadout-group-chemist-envirohelmet = Chemist Capacete hermético
-loadout-group-chemist-envirosuit = Chemist Traje hermético
-loadout-group-chemist-envirogloves = Chemist Luvas herméticas
-loadout-group-chemist-enviroboots = Chemist Botas herméticas
+loadout-group-chemist-envirohelmet = Capacete hermético de Químico
+loadout-group-chemist-envirosuit = Traje hermético de Químico
+loadout-group-chemist-envirogloves = Luvas herméticas de Químico
+loadout-group-chemist-enviroboots = Botas herméticas de Químico
 
 # Head of Security
-loadout-group-head-of-security-envirohelmet = Head of Security Capacete hermético
-loadout-group-head-of-security-envirosuit = Head of Security Traje hermético
-loadout-group-head-of-security-envirogloves = Head of Security Luvas herméticas
-loadout-group-head-of-security-enviroboots = Head of Security Botas herméticas
-loadout-group-head-of-security-gloves = Head of Security gloves
+loadout-group-head-of-security-envirohelmet = Capacete hermético do Segurança Chefe
+loadout-group-head-of-security-envirosuit = Traje hermético do Segurança Chefe
+loadout-group-head-of-security-envirogloves = Luvas herméticas do Segurança Chefe
+loadout-group-head-of-security-enviroboots = Botas herméticas do Segurança Chefe
+loadout-group-head-of-security-gloves = Luvas do Segurança Chefe
 
 # Brigmedic
-loadout-group-brigmedic-envirohelmet = Brigmedic Capacete hermético
-loadout-group-brigmedic-envirosuit = Brigmedic Traje hermético
-loadout-group-brigmedic-envirogloves = Brigmedic Luvas herméticas
-loadout-group-brigmedic-enviroboots = Brigmedic Botas herméticas
+loadout-group-brigmedic-envirohelmet = Capacete hermético do Clínicio Brigadista
+loadout-group-brigmedic-envirosuit = Traje hermético do Clínico Brigadista
+loadout-group-brigmedic-envirogloves = Luvas herméticas do Clínico Brigadista
+loadout-group-brigmedic-enviroboots = Botas herméticas do Clínico Brigadista
 
 # Zookeeper
-loadout-group-zookeeper-envirohelmet = Zookeeper Capacete hermético
-loadout-group-zookeeper-envirosuit = Zookeeper Traje hermético
-loadout-group-zookeeper-envirogloves = Zookeeper Luvas herméticas
-loadout-group-zookeeper-enviroboots = Zookeeper Botas herméticas
-loadout-group-zookeeper-jumpsuit = Zookeeper jumpsuit
-loadout-group-zookeeper-shoes = Zookeeper shoes
-loadout-group-zookeeper-head = Zookeeper hat
+loadout-group-zookeeper-envirohelmet = Capacete hermético do Funcionário do Zoológico
+loadout-group-zookeeper-envirosuit = Traje hermético do Funcionário do Zoológico
+loadout-group-zookeeper-envirogloves = Luvas herméticas do Funcionário do Zoológico
+loadout-group-zookeeper-enviroboots = Botas herméticas do Funcionário do Zoológico
+loadout-group-zookeeper-jumpsuit = Roupa do Funcionário do Zoológico
+loadout-group-zookeeper-shoes = Sapatos do Funcionário do Zoológico
+loadout-group-zookeeper-head = Chapéu do Funcionário do Zoológico
 
 # Boxer
-loadout-group-boxer-envirohelmet = Boxer Capacete hermético
-loadout-group-boxer-envirosuit = Boxer Traje hermético
-loadout-group-boxer-envirogloves = Boxer Luvas herméticas
-loadout-group-boxer-enviroboots = Boxer Botas herméticas
+loadout-group-boxer-envirohelmet = Capacete hermético do Boxeador
+loadout-group-boxer-envirosuit = Traje hermético do Boxeador
+loadout-group-boxer-envirogloves = Luvas herméticas do Boxeador
+loadout-group-boxer-enviroboots = Botas herméticas do Boxeador
 
 # Radio Host
-loadout-group-radio-host-envirohelmet = Radio Host Capacete hermético
-loadout-group-radio-host-envirosuit = Radio Host Traje hermético
-loadout-group-radio-host-envirogloves = Radio Host Luvas herméticas
-loadout-group-radio-host-enviroboots = Radio Host Botas herméticas
-
+loadout-group-radio-host-envirohelmet = Capacete hermético do Locutor de rádio
+loadout-group-radio-host-envirosuit = Traje hermético do Locutor de rádio
+loadout-group-radio-host-envirogloves = Luvas herméticas do Locutor de rádio
+loadout-group-radio-host-enviroboots = Botas herméticas do Locutor de rádio
 # Misc
-loadout-group-plasma-tank = Plasma tank
+loadout-group-plasma-tank = Tanque de Plasma
 
 # Salvage/Shaft Miner
-loadout-group-salvage-specialist-jumpsuit = Salvage Specialist Jumpsuit
-loadout-group-shaft-miner-jumpsuit = Shaft Miner Jumpsuit
-loadout-group-explorer-envirohelmet = Explorer Capacete hermético
-loadout-group-explorer-envirosuit = Explorer Traje hermético
-loadout-group-explorer-envirogloves = Explorer envirgloves
-loadout-group-explorer-enviroboots = Explorer Botas herméticas
+loadout-group-salvage-specialist-jumpsuit = Roupa do Especialista de Exploração
+loadout-group-shaft-miner-jumpsuit = Roupa do Minerador
+loadout-group-explorer-envirohelmet = Capacete hermético de Explorador
+loadout-group-explorer-envirosuit = Traje hermético de Explorador
+loadout-group-explorer-envirogloves = Luvas herméticas de Explorador
+loadout-group-explorer-enviroboots = Botas herméticas de Explorador
+
+# Admin Assistant
+
+loadout-group-admin-assistant-envirohelmet = Capacete hermético do Assistente Administrativo
+loadout-group-admin-assistant-envirosuit = Traje hermético do Assistente Administrativo
+loadout-group-admin-assistant-envirogloves = Luvas herméticas do Assistente Administrativo
+loadout-group-admin-assistant-enviroboots= Botas herméticas do Assistente Administrativo
+
+# Geneticist
+
+loadout-group-geneticist-envirohelmet = Capacete hermético do Geneticista
+loadout-group-geneticist-envirosuit = Traje hermético do Geneticista
+loadout-group-geneticist-envirogloves = Luvas herméticas do Geneticista
+loadout-group-geneticist-enviroboots= Botas herméticas do Geneticista
+
+# Roboticist
+
+loadout-group-roboticist-envirohelmet = Capacete hermético do Roboticista
+loadout-group-roboticist-envirosuit = Traje hermético do Roboticista
+loadout-group-roboticist-envirogloves = Luvas herméticas do Roboticista
+loadout-group-roboticist-enviroboots= Botas herméticas do Roboticista
+
+# Salvage Lead
+
+loadout-group-salvage-lead-envirohelmet = Capacete hermético do Especialista de Exploração Líder
+loadout-group-salvage-lead-envirosuit = Traje hermético do Especialista de Exploração Líder
+loadout-group-salvage-lead-envirogloves = Luvas herméticas do Especialista de Exploração Líder
+loadout-group-salvage-lead-enviroboots= Botas herméticas do Especialista de Exploração Líder
