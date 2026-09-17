@@ -172,9 +172,9 @@
   - GroupSpeciesBreathTool
   - Survival
   # Goobstation - EE Plasmeme Change.
-  - CentComOfficerEnvirohelm
-  - CentComOfficerEnvirosuit
-  - CentComOfficerEnvirogloves
+  #- CentComOfficerEnvirohelm
+  #- CentComOfficerEnvirosuit
+  #- CentComOfficerEnvirogloves
   # Civil loadout
   - CivilianJumpsuit
   - CivilianBackpack
