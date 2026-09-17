@@ -51,6 +51,8 @@ loadout-group-captain-shoes = Captain shoes
 
 loadout-group-hop-head = Head of Personnel head
 loadout-group-hop-jumpsuit = Head of Personnel jumpsuit
+loadout-group-hop-shoes = Head of Personnel shoes
+loadout-group-hop-gloves = Head of Personnel gloves
 loadout-group-hop-neck = Head of Personnel neck
 loadout-group-hop-backpack = Head of Personnel backpack
 loadout-group-hop-outerclothing = Head of Personnel outer clothing
@@ -67,32 +69,39 @@ loadout-group-civilian-belt = Civilian Beltwear
 
 loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit
+loadout-group-bartender-shoes = Bartender shoes
 loadout-group-bartender-outerclothing = Bartender outer clothing
 
 loadout-group-chef-head = Chef head
 loadout-group-chef-mask = Chef mask
 loadout-group-chef-jumpsuit = Chef jumpsuit
+loadout-group-chef-shoes = Chef shoes
 loadout-group-chef-outerclothing = Chef outer clothing
 
 loadout-group-librarian-jumpsuit = Librarian jumpsuit
+loadout-group-librarian-shoes = Librarian shoes
 
 loadout-group-lawyer-jumpsuit = Lawyer jumpsuit
 loadout-group-lawyer-neck = Lawyer neck
+loadout-group-lawyer-shoes = Lawyer shoes
 
 loadout-group-chaplain-head = Chaplain head
 loadout-group-chaplain-mask = Chaplain mask
 loadout-group-chaplain-jumpsuit = Chaplain jumpsuit
+loadout-group-chaplain-shoes = Chaplain shoes
 loadout-group-chaplain-outerclothing = Chaplain outer clothing
 loadout-group-chaplain-neck = Chaplain neck
 
 loadout-group-janitor-head = Janitor head
 loadout-group-janitor-jumpsuit = Janitor jumpsuit
+loadout-group-janitor-shoes = Janitor shoes
 loadout-group-janitor-gloves = Janitor gloves
 loadout-group-janitor-outerclothing = Janitor outer clothing
 loadout-group-janitor-plunger = Janitor plunger
 
 loadout-group-botanist-head = Botanist head
 loadout-group-botanist-jumpsuit = Botanist jumpsuit
+loadout-group-botanist-shoes = Botanist shoes
 loadout-group-botanist-backpack = Botanist backpack
 loadout-group-botanist-outerclothing = Botanist outer clothing
 
@@ -105,11 +114,13 @@ loadout-group-clown-shoes = Clown shoes
 loadout-group-mime-head = Mime head
 loadout-group-mime-mask = Mime mask
 loadout-group-mime-jumpsuit = Mime jumpsuit
+loadout-group-mime-shoes =  Mime shoes
 loadout-group-mime-backpack = Mime backpack
 loadout-group-mime-outerclothing = Mime outer clothing
 loadout-group-mime-belt = Mime belt
 
 loadout-group-musician-jumpsuit = Musician jumpsuit
+loadout-group-musician-shoes = Musician shoes
 loadout-group-musician-outerclothing = Musician outer clothing
 
 # Cargo
@@ -227,8 +238,11 @@ loadout-group-medical-glasses = Medical glasses
 
 # Wildcards
 loadout-group-reporter-jumpsuit = Reporter jumpsuit
+loadout-group-reporter-shoes = Reporter shoes
 
 loadout-group-psychologist-jumpsuit = Psychologist jumpsuit
+loadout-group-psychologist-shoes = Psychologist shoes
 
 loadout-group-boxer-jumpsuit = Boxer jumpsuit
 loadout-group-boxer-gloves = Boxer gloves
+loadout-group-boxer-shoes = Boxer shoes

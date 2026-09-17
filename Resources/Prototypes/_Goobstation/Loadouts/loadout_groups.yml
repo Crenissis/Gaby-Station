@@ -1195,7 +1195,7 @@
 
 - type: loadoutGroup
   id: CaptainEnvirohelmet
-  name: loadout-group-captain-envirohelm
+  name: loadout-group-captain-envirohelmet
   minLimit: 1
   maxLimit: 1
   loadouts:

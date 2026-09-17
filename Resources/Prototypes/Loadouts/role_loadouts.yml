@@ -670,6 +670,7 @@
   groups:
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
+  - StationEngineerShoes
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets

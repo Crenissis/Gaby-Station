@@ -2101,7 +2101,7 @@
 
 - type: loadoutGroup
   id: ReporterShoes
-  name: loadout-group-repoter-shoes
+  name: loadout-group-reporter-shoes
   minLimit: 1
   exclusiveWith: FEET
   loadouts:
