@@ -62,7 +62,7 @@ ent-ClothingHandsGlovesEnviroglovesHOP = Luvas herméticas do Chefe dos Funcion�
     .desc = Um par de luvas de contenção especiais que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Projetadas para o chefe dos funcionários da estação.
 
 ent-ClothingHandsGlovesEnviroglovesHOS = Luvas herméticas do Segurança Chefe
-    .desc = Um par de luvas de contenção blindadas, com placas reforçadas, que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado.  Projetadas para o Homem Plasma mais osso duro de roer da estação.
+    .desc = Um par de luvas de contenção blindadas, com placas reforçadas, que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado.  Projetadas para o Pessoa Plasma mais osso duro de roer da estação.
 
 ent-ClothingHandsGlovesEnviroglovesQM = Luvas herméticas do Almoxarife
     .desc = Um par de luvas de contenção projetado para, provavelmente, a pessoa mais rica da estação.
@@ -113,7 +113,7 @@ ent-ClothingHandsGlovesEnviroglovesPrisonGuard = Luvas herméticas do Guarda Pri
     .desc = Um par de luvas de contenção blindadas, com placas reforçadas, que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado.
 
 ent-ClothingHandsGlovesEnviroglovesPrisoner = Luvas herméticas do Prisioneiro
-    .desc = Um par de luvas de contenção especiais que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Foi modificado para conter prisioneiros que são Homem Plasma. Não pode ser removido por conta própria, é necessária assistência externa.
+    .desc = Um par de luvas de contenção especiais que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Foi modificado para conter prisioneiros que são Pessoa Plasma. Não pode ser removido por conta própria, é necessária assistência externa.
 
 ent-ClothingHandsGlovesEnviroglovesSecurityV1 = Luvas herméticas do Oficial de Segurança
     .desc = Um capacete de contenção e segurança blindado, projetado para lidar com ameaças à estação.

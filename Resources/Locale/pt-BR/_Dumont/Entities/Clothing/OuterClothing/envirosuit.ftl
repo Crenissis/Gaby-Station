@@ -63,7 +63,7 @@ ent-ClothingOuterEnvirosuitHOP = Traje hermético do Chefe dos Funcionários
     .desc = Um traje de contenção especial que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Projetado para o chefe dos funcionários da estação
 
 ent-ClothingOuterEnvirosuitHOS = Traje hermético do Segurança Chefe
-    .desc = Um traje de contenção e segurança blindado, projetado para lidar com ameaças à estação. Projetado para o Homem Plasma mais osso duro de roer da estação.
+    .desc = Um traje de contenção e segurança blindado, projetado para lidar com ameaças à estação. Projetado para o Pessoa Plasma mais osso duro de roer da estação.
 
 ent-ClothingOuterEnvirosuitQM = Traje hermético do Almoxarife
     .desc = Um traje de contenção projetado para a pessoa, provavelmente, mais rica da estação
@@ -90,7 +90,7 @@ ent-ClothingOuterEnvirosuitVirologist = Traje hermético do Virologista
     .desc = Um traje de contenção especial que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Projetado para virologistas.
 
 ent-ClothingOuterEnvirosuitGeneticist = Traje hermético do Geneticista
-    .desc = Um traje de contenção especial que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Embora os Homens Plasma não sejam afetados pela radiação, este capacete oferece proteção adicional contra ela.
+    .desc = Um traje de contenção especial que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Embora os Pessoas Plasma não sejam afetados pela radiação, este capacete oferece proteção adicional contra ela.
 
 ent-ClothingOuterEnvirosuitResearchAssistant = Traje hermético do Assistente de Pesquisa
     .desc = Um traje de contenção especial que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Projetado para assistentes de pesquisa.
@@ -114,7 +114,7 @@ ent-ClothingOuterEnvirosuitPrisonGuard = Traje hermético do Guarda Prisional
     .desc = Um traje de contenção e segurança blindado, projetado para lidar com ameaças à estação. Projetado para o guarda prisional. Não protege o usuário contra pressão.
 
 ent-ClothingOuterEnvirosuitPrisoner = Traje hermético do Prisioneiro
-    .desc = Um traje de contenção especial que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Foi modificado para conter prisioneiros que são Homem Plasma. Não pode ser removido por conta própria, é necessária assistência externa.
+    .desc = Um traje de contenção especial que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Foi modificado para conter prisioneiros que são Pessoa Plasma. Não pode ser removido por conta própria, é necessária assistência externa.
 
 ent-ClothingOuterEnvirosuitSecurityV1 = Traje hermético do Oficial de Segurança
     .desc = Um traje de contenção e segurança blindado, projetado para lidar com ameaças à estação.

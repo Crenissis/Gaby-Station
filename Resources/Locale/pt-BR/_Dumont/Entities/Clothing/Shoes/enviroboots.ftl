@@ -50,7 +50,7 @@ ent-ClothingShoesEnvirobootsHOP = Botas herméticas do Chefe dos Funcionários
     .desc = Um par de botas de contenção especiais que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Projetado para o chefe dos funcionários da estação.
 
 ent-ClothingShoesEnvirobootsHOS = Botas herméticas do Segurança Chefe
-    .desc = Um par de botas de contenção blindadas, com placas reforçadas, que permite a formas de vida baseadas em plasma existirem com segurança em um ambiente oxigenado. Projetado para o Homem Plasma mais osso duro de roer da estação.
+    .desc = Um par de botas de contenção blindadas, com placas reforçadas, que permite a formas de vida baseadas em plasma existirem com segurança em um ambiente oxigenado. Projetado para o Pessoa Plasma mais osso duro de roer da estação.
 
 ent-ClothingShoesEnvirobootsQM = Botas herméticas do Almoxarife
     .desc = Um par de botas de contenção projetadas para a pessoa, provavelmente, mais rica da estação
@@ -100,7 +100,7 @@ ent-ClothingShoesEnvirobootsPrisonGuard = Botas herméticas do Guarda Prisional
     .desc = Um par de botas de contenção blindadas, com placas reforçadas, que permite a formas de vida baseadas em plasma existirem com segurança em um ambiente oxigenado.
 
 ent-ClothingShoesEnvirobootsPrisoner = Botas herméticas do Prisioneiro
-    .desc = Um par de botas de contenção especiais que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Foi modificado para conter prisioneiros que são Homem Plasma. Não pode ser removido por conta própria, é necessária assistência externa.
+    .desc = Um par de botas de contenção especiais que permite que formas de vida baseadas em plasma existam com segurança em um ambiente oxigenado. Foi modificado para conter prisioneiros que são Pessoa Plasma. Não pode ser removido por conta própria, é necessária assistência externa.
 
 ent-ClothingShoesEnvirobootsSecurity = Botas herméticas do Oficial de Segurança
     .desc = Um par de botas de contenção blindadas, com placas reforçadas, que permite a formas de vida baseadas em plasma existirem com segurança em um ambiente oxigenado.
