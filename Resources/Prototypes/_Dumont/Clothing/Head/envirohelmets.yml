@@ -55,12 +55,9 @@
       - state: equipped-HELMET-light
         shader: unshaded
   - type: IngestionBlocker
-  - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    clothingSlots:
-    - mask
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - ears
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
@@ -2091,14 +2088,10 @@
     sprite: _Dumont/Clothing/Head/Envirohelms/Service/clown.rsi
   - type: Clothing
     sprite: _Dumont/Clothing/Head/Envirohelms/Service/clown.rsi
-  - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    clothingSlots:
-    - mask
-    - eyes
+  - type: HideClothingLayerClothing
+    hiddenSlots:
     - ears
+    - mask
 
 - type: entity
   parent: ClothingHeadEnvirohelmetBase
@@ -2173,6 +2166,18 @@
     sprite: _Dumont/Clothing/Head/Envirohelms/Service/reporter.rsi
   - type: Clothing
     sprite: _Dumont/Clothing/Head/Envirohelms/Service/reporter.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmetBase
+  id: ClothingHeadEnvirohelmetServiceWorker
+  name: service worker envirohelmet
+  description: A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment. With an extra seal to prevent unwanted bees from entering the helmet.
+  components:
+  - type: Sprite
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/service_worker.rsi
+  - type: Clothing
+    sprite: _Dumont/Clothing/Head/Envirohelms/Service/service_worker.rsi
+    mask: /Textures/Effects/LightMasks/cone.png
 
 - type: entity
   parent: ClothingHeadEnvirohelmetBase

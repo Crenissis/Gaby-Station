@@ -427,6 +427,14 @@
   - HoPSummerShirt # goob
 
 - type: loadoutGroup
+  id: HoPShoes
+  name: loadout-group-hop-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - BrownShoes
+
+- type: loadoutGroup
   id: HoPNeck
   name: loadout-group-hop-neck
   minLimit: 0
@@ -772,6 +780,14 @@
   - WaitressUniform # EE
 
 - type: loadoutGroup
+  id: BartenderShoes
+  name: loadout-group-bartender-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - BlackShoes
+
+- type: loadoutGroup
   id: BartenderOuterClothing
   name: loadout-group-bartender-outerclothing
   minLimit: 0
@@ -805,6 +821,14 @@
   - ServiceMJ # goob
 
 - type: loadoutGroup
+  id: ChefShoes
+  name: loadout-group-chef-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - BlackShoes
+
+- type: loadoutGroup
   id: ChefOuterClothing
   name: loadout-group-chef-outerclothing
   minLimit: 0
@@ -826,6 +850,14 @@
   - ServiceMJ # goob
 
 - type: loadoutGroup
+  id: LibrarianShoes
+  name: loadout-group-librarian-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - LaceupShoes
+
+- type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit
   minLimit: 1
@@ -842,6 +874,14 @@
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
   - ServiceMJ # goob
+
+- type: loadoutGroup
+  id: LawyerShoes
+  name: loadout-group-lawyer-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - LaceupShoes
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -881,6 +921,14 @@
   - ServiceMJ # goob
 
 - type: loadoutGroup
+  id: ChaplainShoes
+  name: loadout-group-chaplain-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - BlackShoes
+
+- type: loadoutGroup
   id: ChaplainOuterClothing
   name: loadout-group-chaplain-outerclothing
   minLimit: 0
@@ -915,6 +963,14 @@
   - JanitorJumpskirt
   - ServiceMJ # goob
   - MaidOutfitJanitor
+
+- type: loadoutGroup
+  id: JanitorShoes
+  name: loadout-group-janitor-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - JanitorShoes
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -959,6 +1015,14 @@
   - BotanistOveralls
   - ServiceMJ # goob
   - HydroMJ # goob
+
+- type: loadoutGroup
+  id: BotanistShoes
+  name: loadout-group-botanist-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - BrownShoes
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -1063,6 +1127,14 @@
   - MimeJumpskirt
 
 - type: loadoutGroup
+  id: MimeShoes
+  name: loadout-group-mime-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - WhiteShoes
+
+- type: loadoutGroup
   id: MimeBackpack
   name: loadout-group-mime-backpack
   exclusiveWith: BACK # Goobstation
@@ -1111,6 +1183,14 @@
   - MusicianJumpsuit
   - MusicianJumpskirt
   - ServiceMJ # goob
+
+- type: loadoutGroup
+  id: MusicianShoes
+  name: loadout-group-musician-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - LaceupShoes
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -2020,6 +2100,14 @@
   - ReporterDress
 
 - type: loadoutGroup
+  id: ReporterShoes
+  name: loadout-group-repoter-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - LaceupShoes
+
+- type: loadoutGroup
   id: PsychologistJumpsuit
   name: loadout-group-psychologist-jumpsuit
   minLimit: 1
@@ -2055,6 +2143,14 @@
   - BlueBoxingGloves
   - GreenBoxingGloves
   - YellowBoxingGloves
+
+- type: loadoutGroup
+  id: BoxerShoes
+  name: loadout-group-boxer-shoes
+  minLimit: 1
+  exclusiveWith: FEET
+  loadouts:
+  - WhiteShoes
 
 # Other
 - type: loadoutGroup
