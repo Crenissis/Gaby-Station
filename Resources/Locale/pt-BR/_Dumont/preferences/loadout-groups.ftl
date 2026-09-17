@@ -142,11 +142,6 @@ loadout-group-head-of-personnel-envirogloves = Luvas herméticas do Chefe dos Fu
 loadout-group-head-of-personnel-enviroboots = Botas herméticas do Chefe dos Funcionários
 loadout-group-head-of-personnel-gloves = Luvas do Chefe dos Funcionários
 
-# CentCom Officer
-loadout-group-centcom-officer-envirohelmet = CentCom Officer Capacete hermético
-loadout-group-centcom-officer-envirosuit = CentCom Officer Traje hermético
-loadout-group-centcom-officer-envirogloves = CentCom Officer Luvas herméticas
-
 # Botanist
 loadout-group-botanist-envirohelmet = Capacete hermético de Botânico
 loadout-group-botanist-envirosuit = Traje hermético de Botânico

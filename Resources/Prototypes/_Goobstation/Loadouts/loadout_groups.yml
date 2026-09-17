@@ -552,29 +552,29 @@
 
 # Centcomm Officer
 
-- type: loadoutGroup
-  id: CentComOfficerEnvirohelmet
-  name: loadout-group-centcom-officer-envirohelmet
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CentComOfficerEnvirohelm
-
-- type: loadoutGroup
-  id: CentComOfficerEnvirosuit
-  name: loadout-group-centcom-officer-envirosuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CentComOfficerEnvirosuit
-
-- type: loadoutGroup
-  id: CentComOfficerEnvirogloves
-  name: loadout-group-centcom-officer-envirogloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - BlackEnvirogloves
+#- type: loadoutGroup
+#  id: CentComOfficerEnvirohelmet
+#  name: loadout-group-centcom-officer-envirohelmet
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - CentComOfficerEnvirohelm
+#
+#- type: loadoutGroup
+#  id: CentComOfficerEnvirosuit
+#  name: loadout-group-centcom-officer-envirosuit
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - CentComOfficerEnvirosuit
+#
+#- type: loadoutGroup
+#  id: CentComOfficerEnvirogloves
+#  name: loadout-group-centcom-officer-envirogloves
+#  minLimit: 1
+#  maxLimit: 1
+#  loadouts:
+#  - BlackEnvirogloves
 
 # Botanist
 

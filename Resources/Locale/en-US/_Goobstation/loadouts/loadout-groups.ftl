@@ -120,11 +120,6 @@ loadout-group-head-of-personnel-envirogloves = Head of Personnel envirogloves
 loadout-group-head-of-personnel-enviroboots = Head of Personnel enviroboots
 loadout-group-head-of-personnel-gloves = Head of Personnel gloves
 
-# CentCom Officer
-loadout-group-centcom-officer-envirohelmet = CentCom Officer envirohelmet
-loadout-group-centcom-officer-envirosuit = CentCom Officer envirosuit
-loadout-group-centcom-officer-envirogloves = CentCom Officer envirogloves
-
 # Botanist
 loadout-group-botanist-envirohelmet = Botanist envirohelmet
 loadout-group-botanist-envirosuit = Botanist envirosuit
