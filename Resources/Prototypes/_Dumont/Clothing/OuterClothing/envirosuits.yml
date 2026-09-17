@@ -25,7 +25,7 @@
     equipDelay: 0.4
     unequipDelay: 0.6
   - type: Item
-    size: Ginormous
+    size: Huge
   - type: IgniteFromGasImmunity
     parts:
     - Chest
@@ -82,7 +82,7 @@
     equipDelay: 0.4
     unequipDelay: 0.6
   - type: Item
-    size: Ginormous
+    size: Huge
   - type: IgniteFromGasImmunity
     parts:
     - Chest
@@ -179,7 +179,7 @@
         shader: unshaded
 
 - type: entity
-  parent: [ClothingOuterEnvirosuitBase, BaseCargoContraband]
+  parent: [ClothingOuterEnvirosuitBaseCombat, BaseCargoContraband]
   id: ClothingOuterEnvirosuitMaxim
   name: maxim envirosuit
   description: Fire. Heat. These things forge great weapons, they also forge great explorers.

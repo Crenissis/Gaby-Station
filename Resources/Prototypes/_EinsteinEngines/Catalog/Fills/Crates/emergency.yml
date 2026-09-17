@@ -21,11 +21,13 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingUniformEnvirosuit
+      - id: ClothingOuterEnvirosuit
         amount: 2
-      - id: ClothingHeadEnvirohelmEmpty
+      - id: ClothingHeadEnvirohelmet
         amount: 2
       - id: ClothingHandsGlovesEnvirogloves
+        amount: 2
+      - id: ClothingShoesEnviroboots
         amount: 2
       - id: ClothingMaskBreath
         amount: 2
