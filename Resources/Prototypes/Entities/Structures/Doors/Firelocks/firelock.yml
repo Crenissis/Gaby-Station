@@ -126,6 +126,7 @@
           shader: unshaded
           map: ["enum.DoorVisualLayers.BaseBolted"]
           visible: false
+        # Dumont change: firelocks dont need more maintenance panels
         #- state: panel_open
         #  map: ["enum.WiresVisualLayers.MaintenancePanel"]
         - state: pressure_unlit
@@ -183,6 +184,7 @@
       time: 3
     - type: Firelock
     - type: Appearance
+    # Dumont change: firelocks dont need more maintenance panels
     #- type: WiresVisuals
     #- type: WiresPanel
     #- type: UserInterface
