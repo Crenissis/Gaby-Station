@@ -321,7 +321,7 @@
       board: [ DoorElectronicsChemistry ]
 
 - type: entity
-  parent: AirlockMedical
+  parent: AirlockMorgue
   id: AirlockMedicalMorgueLocked
   suffix: Morgue, Locked
   components:
@@ -706,7 +706,7 @@
       board: [ DoorElectronicsChemistry ]
 
 - type: entity
-  parent: AirlockMedicalGlass
+  parent: AirlockMorgueGlass
   id: AirlockMedicalMorgueGlassLocked
   suffix: Morgue, Locked
   components:
