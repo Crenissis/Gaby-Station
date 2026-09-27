@@ -54,10 +54,10 @@
   parent: [BitrunnerAvatarCaptainGear, BitrunnerAvatarPlasmamanGear]
   id: BitrunnerAvatarCaptainPlasmamanGear
   equipment:
-    outerClothing: ClothingOuterEnvirosuitCaptain
-    head: ClothingHeadEnvirohelmetCaptain
-    gloves: ClothingHandsGlovesEnviroglovesCaptain
-    shoes: ClothingShoesEnvirobootsCaptain
+    outerClothing: ClothingOuterEnvirosuitCap
+    head: ClothingHeadEnvirohelmetCap
+    gloves: ClothingHandsGlovesEnviroglovesCap
+    shoes: ClothingShoesEnvirobootsCap
 
 - type: startingGear
   parent: [BitrunnerAvatarEngineerGear, BitrunnerAvatarPlasmamanGear]
