@@ -26,7 +26,7 @@
       map: [ "sealed" ]
   - type: Tag
     tags:
-    - PlasmamanSafe
+    - PlasmamanSafeOther # Dumont
     - WhitelistChameleon
   - type: IgniteFromGasImmunity
     parts:

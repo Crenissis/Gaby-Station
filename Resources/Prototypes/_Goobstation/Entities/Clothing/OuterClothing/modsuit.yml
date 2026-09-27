@@ -42,7 +42,7 @@
       map: [ "sealed" ]
   - type: Tag
     tags:
-    - PlasmamanSafe
+    - PlasmamanSafeOther # Dumont
     - SyringeArmor
   - type: IgniteFromGasImmunity
     parts:
