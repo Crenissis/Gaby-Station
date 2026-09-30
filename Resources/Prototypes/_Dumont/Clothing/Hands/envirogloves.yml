@@ -271,6 +271,7 @@
     sprite: _Dumont/Clothing/Hands/Envirogloves/Dignitary/ntr.rsi
   - type: Fiber
     fiberColor: fibers-black
+  - type: Insulated
 
 #region Engineering
 
