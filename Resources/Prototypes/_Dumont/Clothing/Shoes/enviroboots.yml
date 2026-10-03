@@ -231,6 +231,14 @@
         Piercing: 0.55
         Heat: 0.6
         Caustic: 0.6
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingShoesEnvirobootsBase, BaseCentcommCommandContraband]
@@ -450,6 +458,14 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingShoesEnvirobootsBase, BaseCommandContraband]
@@ -644,6 +660,14 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingShoesEnvirobootsBase, BaseSecurityContraband]
@@ -670,6 +694,14 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingShoesEnvirobootsBase, BaseSecurityContraband]
@@ -698,6 +730,14 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingShoesEnvirobootsBase, BaseSecurityContraband]
@@ -726,6 +766,14 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: ClothingShoesEnvirobootsBase
@@ -767,6 +815,14 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingShoesEnvirobootsBase, BaseSecurityContraband]
@@ -795,6 +851,14 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 #region Service
 
