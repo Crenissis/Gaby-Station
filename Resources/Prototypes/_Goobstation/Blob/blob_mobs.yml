@@ -19,7 +19,7 @@
   name: Blob pod
   description: An ordinary person fighting opponents, not like a thing attached to a tile, zombifies corpses.
   parent: SimpleSpaceMobBase
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]
   components:
     - type: ZombieImmune
     - type: TriggerOnMobstateChange
@@ -45,6 +45,10 @@
       tags:
         - HidesHair
         - BlobMob
+        - PlasmamanSafeOther # Dumont
+    - type: IgniteFromGasImmunity # Dumont
+      parts:
+      - Head
     - type: CollectiveMind
       defaultChannel: Blobmind
       channels:
