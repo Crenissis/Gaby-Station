@@ -1649,7 +1649,7 @@
   parent: [ClothingHeadEnvirohelmetBase, BaseSecurityContraband]
   id: ClothingHeadEnvirohelmetDetective
   name: detective envirohelmet
-  description: An armored security containment helmet designed to handle threats to the station. It does not protect the user against pressure. It has a strong smell of cigarettes and whiskey.
+  description: An armored security containment helmet designed to handle threats to the station, with a built in toolkit. It does not protect the user against pressure. It has a strong smell of cigarettes and whiskey.
   components:
   - type: Sprite
     sprite: _Dumont/Clothing/Head/Envirohelms/Security/detective.rsi
@@ -1668,6 +1668,28 @@
   - type: PointLight
     enabled: false
     color: "#dadde0"
+  - type: TriggerOnVoice
+    keyPhrase: "go go gadget"
+    listenRange: 0
+  - type: ActiveListener
+    range: 0
+  - type: StorageVoiceControl
+    allowedSlots:
+    - HEAD
+  - type: Storage
+    showVerb: false
+    grid:
+    - 0,0,3,2
+    maxItemSize: Small
+    blacklist:
+      tags:
+      - HighRiskItem
+      - FakeNukeDisk
+      - QuantumSpinInverter
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
 
 - type: entity
   parent: [ClothingHeadEnvirohelmetBase, BaseSecurityContraband]
