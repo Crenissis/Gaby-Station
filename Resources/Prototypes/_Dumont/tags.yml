@@ -77,3 +77,6 @@
 
 - type: Tag
   id: PlasmamanSafeOther
+
+- type: Tag
+  id: CurseBomb
