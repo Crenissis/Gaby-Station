@@ -43,7 +43,6 @@
   - type: Tag
     tags:
     - PlasmamanSafeOther # Dumont
-    - SyringeArmor
   - type: IgniteFromGasImmunity
     parts: # Dumont change
     - Chest
@@ -53,7 +52,7 @@
     - LeftLeg
     - RightLeg
   # GabyStation begin
-  - type: UpgradeableWeapon # Gaby Modulos pra modsuit usam o mesmo sistema ja definido para upgrades de PKA
+  - type: ItemUpgradeable # Gaby Modulos pra modsuit usam o mesmo sistema ja definido para upgrades de PKA
   - type: ContainerContainer
     containers:
       chest_module: !type:ContainerSlot
